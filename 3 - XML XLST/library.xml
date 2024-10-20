@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="library.xsl"?>
+<library>
+    <book>
+        <title>XML Fundamentals</title>
+        <author>John Doe</author>
+        <year>2022</year>
+    </book>
+    <book>
+        <title>XSLT Essentials</title>
+        <author>Jane Smith</author>
+        <year>2023</year>
+    </book>
+    <book>
+        <title>Learning XPath</title>
+        <author>Emily Johnson</author>
+        <year>2021</year>
+    </book>
+</library>

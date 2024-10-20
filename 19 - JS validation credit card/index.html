@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Registration and Payment</title>
+    <style>
+        .error { color: red; }
+        #Log, #Pay { display: none; }
+    </style>
+</head>
+<body>
+<div id="Reg">
+    <h1>User Registration</h1>
+    <form id="registrationForm" onsubmit="return validateRegistration()">
+        <label for="regEmail">Email:</label>
+        <input type="email" id="regEmail" required>
+        <span class="error" id="regEmailError"></span><br>
+        <label for="regPassword">Password:</label>
+        <input type="password" id="regPassword" required>
+        <span class="error" id="regPasswordError"></span><br>
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+<div id="Log">
+    <h1>User Login</h1>
+    <form id="loginForm" onsubmit="return validateLogin()">
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" required>
+        <span class="error" id="loginEmailError"></span><br>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<div id="Pay">
+    <h1>Payment</h1>
+    <form id="paymentForm" onsubmit="return validatePayment()">
+        <label for="cardNumber">Credit Card Number:</label>
+        <input type="text" id="cardNumber" required>
+        <span class="error" id="cardNumberError"></span><br>
+        <label for="expDate">Expiration Date (MM/YY):</label>
+        <input type="text" id="expDate" required>
+        <span class="error" id="expDateError"></span><br>
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" required>
+        <span class="error" id="cvvError"></span><br>
+        <button type="submit">Pay</button>
+    </form>
+</div>
+
+<script>
+    function validateRegistration() {
+        let email = document.getElementById('regEmail').value;
+        let password = document.getElementById('regPassword').value;
+        let valid = true;
+
+        document.getElementById('regEmailError').textContent = '';
+        document.getElementById('regPasswordError').textContent = '';
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            document.getElementById('regEmailError').textContent = 'Invalid email format.';
+            valid = false;
+        }
+        if (password.length < 6) {
+            document.getElementById('regPasswordError').textContent = 'Password must be at least 6 characters.';
+            valid = false;
+        }
+        if (valid) {
+            document.getElementById('Reg').style.display = 'none';
+            document.getElementById('Log').style.display = 'block';
+        }
+        return valid;
+    }
+
+    function validateLogin() {
+        let email = document.getElementById('loginEmail').value;
+        let valid = true;
+
+        document.getElementById('loginEmailError').textContent = '';
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            document.getElementById('loginEmailError').textContent = 'Invalid email format.';
+            valid = false;
+        }
+        if (valid) {
+            document.getElementById('Log').style.display = 'none';
+            document.getElementById('Pay').style.display = 'block';
+        }
+        return valid;
+    }
+
+    function validatePayment() {
+        let cardNumber = document.getElementById('cardNumber').value;
+        let expDate = document.getElementById('expDate').value;
+        let cvv = document.getElementById('cvv').value;
+        let valid = true;
+
+        document.getElementById('cardNumberError').textContent = '';
+        document.getElementById('expDateError').textContent = '';
+        document.getElementById('cvvError').textContent = '';
+
+        const cardPattern = /^\d{16}$/;
+        if (!cardPattern.test(cardNumber)) {
+            document.getElementById('cardNumberError').textContent = 'Invalid card number.';
+            valid = false;
+        }
+        const expPattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
+        if (!expPattern.test(expDate)) {
+            document.getElementById('expDateError').textContent = 'Invalid expiration date.';
+            valid = false;
+        }
+        const cvvPattern = /^\d{3}$/;
+        if (!cvvPattern.test(cvv)) {
+            document.getElementById('cvvError').textContent = 'Invalid CVV.';
+            valid = false;
+        }
+        if (valid) {
+            alert("Payment successful!");
+        }
+        return valid;
+    }
+</script>
+</body>
+</html>

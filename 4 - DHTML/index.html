@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DHTML Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #dynamicText {
+            display: none;
+            margin: 20px 0;
+        }
+        #dynamicImage {
+            width: 200px;
+            height: auto;
+        }
+    </style>
+    <script>
+        function toggleText() {
+            const text = document.getElementById('dynamicText');
+            text.style.display = (text.style.display === 'none') ? 'block' : 'none';
+        }
+
+        function changeBackground() {
+            document.body.style.backgroundColor = 
+                document.body.style.backgroundColor === 'lightblue' ? 'white' : 'lightblue';
+        }
+
+        function changeImage() {
+            const image = document.getElementById('dynamicImage');
+            image.src = (image.src.includes('cat.jpg')) ? 'dog.jpg' : 'cat.jpg';
+        }
+    </script>
+</head>
+<body>
+    <h1>DHTML Interactive Page</h1>
+    <div id="dynamicText">This is some dynamic text that can be shown or hidden.</div>
+
+    <button onclick="toggleText()">Show/Hide Text</button>
+
+    <button onclick="changeBackground()">Change Background Color</button>
+
+    <button onclick="changeImage()">Change Image</button><br>
+    <img id="dynamicImage" src="cat.jpg" alt="Dynamic Image">
+
+</body>
+</html>

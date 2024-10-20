@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="orderApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body ng-controller="OrderController">
+
+    <h1>Order Form</h1>
+    <form ng-submit="submitOrder()" name="orderForm">
+        <div>
+            <label>Name:</label>
+            <input type="text" ng-model="order.name" required>
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="email" ng-model="order.email" required>
+        </div>
+        <div>
+            <label>Product:</label>
+            <select ng-model="order.product" required>
+                <option value="">Select a product</option>
+                <option value="Product A">Product A</option>
+                <option value="Product B">Product B</option>
+                <option value="Product C">Product C</option>
+            </select>
+        </div>
+        <div>
+            <label>Quantity:</label>
+            <input type="number" ng-model="order.quantity" min="1" required>
+        </div>
+        <button type="submit">Submit Order</button>
+    </form>
+
+    <div ng-if="message">
+        <h3>{{ message }}</h3>
+    </div>
+
+</body>
+</html>

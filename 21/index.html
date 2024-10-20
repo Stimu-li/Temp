@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Opinion</title>
+</head>
+<body>
+    <h1>Share Your Opinion</h1>
+    <form id="opinionForm">
+        <input type="text" name="product_name" placeholder="Product Name" required>
+        <textarea name="opinion" placeholder="Your Opinion" required></textarea>
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Opinions</h2>
+    <div id="opinions"></div>
+
+    <script>
+        document.getElementById('opinionForm').onsubmit = function(event) {
+            event.preventDefault();
+            fetch('submit_opinion.php', {
+                method: 'POST',
+                body: new FormData(this)
+            }).then(() => loadOpinions());
+        };
+
+        function loadOpinions() {
+            fetch('get_opinions.php')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('opinions').innerHTML = data.map(opinion => 
+                        `<p><strong>${opinion.product_name}</strong>: ${opinion.opinion} <em>(${opinion.timestamp})</em></p>`
+                    ).join('');
+                });
+        }
+
+        loadOpinions(); // Load opinions on page load
+    </script>
+</body>
+</html>

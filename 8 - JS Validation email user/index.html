@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>User Registration and Login</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="registerHeader">User Registration</h1>
+    <form id="registerForm" onsubmit="registerUser(event)">
+        <label for="regEmail">Email:</label>
+        <input type="email" id="regEmail" required>
+        <br>
+        <label for="regPassword">Password:</label>
+        <input type="password" id="regPassword" required>
+        <br>
+        <button type="submit">Register</button>
+    </form>
+
+    <h1 class="hidden" id="loginHeader">User Login</h1>
+    <form class="hidden" id="loginForm" onsubmit="loginUser(event)">
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" required>
+        <br>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" required>
+        <br>
+        <button type="submit">Login</button>
+    </form>
+
+    <div class="hidden" id="profile">
+        <h2>User Profile</h2>
+        <p id="profileEmail"></p>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        function registerUser(event) {
+            event.preventDefault();
+            const email = document.getElementById('regEmail').value;
+            const password = document.getElementById('regPassword').value;
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            // Store user data
+            localStorage.setItem('email', email);
+            localStorage.setItem('password', password);
+            alert("Registration successful! You can now login.");
+
+            // Hide registration form and show login form
+            document.getElementById('registerHeader').classList.add('hidden');
+            document.getElementById('registerForm').classList.add('hidden');
+            document.getElementById('loginHeader').classList.remove('hidden');
+            document.getElementById('loginForm').classList.remove('hidden');
+        }
+
+        function loginUser(event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Validate login
+            const storedEmail = localStorage.getItem('email');
+            const storedPassword = localStorage.getItem('password');
+
+            if (email === storedEmail && password === storedPassword) {
+                // Hide login form and show profile
+                document.getElementById('loginHeader').classList.add('hidden');
+                document.getElementById('loginForm').classList.add('hidden');
+                document.getElementById('profileEmail').innerText = `Email: ${storedEmail}`;
+                document.getElementById('profile').classList.remove('hidden');
+            } else {
+                alert("Invalid email or password.");
+            }
+        }
+
+        function logout() {
+            // Clear session and show registration form again
+            localStorage.removeItem('email');
+            localStorage.removeItem('password');
+            document.getElementById('profile').classList.add('hidden');
+            document.getElementById('registerHeader').classList.remove('hidden');
+            document.getElementById('registerForm').classList.remove('hidden');
+            document.getElementById('loginHeader').classList.add('hidden');
+            document.getElementById('loginForm').classList.add('hidden');
+
+        }
+    </script>
+</body>
+
+</html>
