@@ -88,27 +88,25 @@ To create a web page that embeds an India map with clickable hotspots for import
 ```html
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>India Map with Cities</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
+      body {
+        font-family: Arial, sans-serif;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>India Map</h1>
-    <img src="india-map.png" usemap="#india-map" alt="India Map">
+    <img src="india-map.png" usemap="#india-map" alt="India Map" />
     <map name="india-map">
-        <area shape="circle" coords="507,552,24" alt="Delhi" href="delhi.html" />
-        <area shape="circle" coords="312,1103,70" alt="Mumbai" href="mumbai.html" />
-        <area shape="circle" coords="659,1443,38" alt="Kolkata" href="kolkata.html" />
-        <area shape="circle" coords="1056,889,36" alt="Chennai" href="chennai.html" />
+      <area shape="circle" coords="507,552,24" alt="Delhi" href="delhi.html" />
+      <area shape="circle" coords="312,1103,70" alt="Mumbai" href="mumbai.html" />
+      <area shape="circle" coords="659,1443,38" alt="Kolkata" href="kolkata.html" />
+      <area shape="circle" coords="1056,889,36" alt="Chennai" href="chennai.html" />
     </map>
-</body>
-
+  </body>
 </html>
 ```
 
