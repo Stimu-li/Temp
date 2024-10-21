@@ -2164,3 +2164,141 @@ To create an HTML form for submitting a resume to a job portal, using JSP for ha
 ### Result
 
 A functional HTML form embedded with JSP code that allows users to submit their resumes to a job portal, storing the data in a MySQL database.
+
+---
+
+### Aim
+To create a Java servlet application for conducting an online examination and displaying the student mark list from a database.
+
+### Algorithm
+**Client:**
+1. Create `index.html` with form inputs for seat number, name, and questions.
+2. Include a submit button to send data to the server.
+
+**Server:**
+1. Import necessary Java and servlet packages.
+2. Create a servlet class extending `HttpServlet`.
+3. In the `doPost()` method:
+   - Set response content type to "text/html".
+   - Retrieve parameters from the request.
+   - Calculate marks based on answers.
+   - Insert results into the database.
+   - Display results in HTML format.
+
+**Database Handling:**
+1. Import JDBC packages.
+2. Establish a connection to the database.
+3. Execute a query to retrieve and display student results.
+
+### Coding
+
+**HTML Code (`index.html`):**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Examination</title>
+</head>
+<body>
+    <center><h1>Online Examination</h1></center>
+    <form action="StudentServlet" method="POST">
+        <b>Seat Number:</b> <input type="text" name="Seat_no"><br>
+        <b>Name:</b> <input type="text" name="Name"><br><br>
+        <b>1. Every host implements transport layer.</b><br>
+        <input type="radio" name="group1" value="True">True
+        <input type="radio" name="group1" value="False">False<br>
+        <b>2. Network layer forwards packets reliably.</b><br>
+        <input type="radio" name="group2" value="True">True
+        <input type="radio" name="group2" value="False">False<br>
+        <b>3. Packet switching is useful in bursty traffic.</b><br>
+        <input type="radio" name="group3" value="True">True
+        <input type="radio" name="group3" value="False">False<br>
+        <b>4. A phone network uses packet switching.</b><br>
+        <input type="radio" name="group4" value="True">True
+        <input type="radio" name="group4" value="False">False<br>
+        <b>5. HTML describes web contents.</b><br>
+        <input type="radio" name="group5" value="True">True
+        <input type="radio" name="group5" value="False">False<br><br>
+        <input type="submit" value="Submit"><br>
+    </form>
+</body>
+</html>
+```
+
+**Servlet Code (`StudentServlet.java`):**
+```java
+import java.io.*;
+import java.sql.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class StudentServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String message;
+        int total = 0;
+
+        String seatNo = request.getParameter("Seat_no");
+        String name = request.getParameter("Name");
+        String ans1 = request.getParameter("group1");
+        String ans2 = request.getParameter("group2");
+        String ans3 = request.getParameter("group3");
+        String ans4 = request.getParameter("group4");
+        String ans5 = request.getParameter("group5");
+
+        if ("True".equals(ans1)) total += 2;
+        if ("False".equals(ans2)) total += 2;
+        if ("True".equals(ans3)) total += 2;
+        if ("False".equals(ans4)) total += 2;
+        if ("False".equals(ans5)) total += 2;
+
+        try (Connection connect = DriverManager.getConnection("jdbc:your_database_url", "username", "password");
+             Statement stmt = connect.createStatement()) {
+
+            String query = "INSERT INTO student(Seat_no, Name, Total) VALUES('" + seatNo + "', '" + name + "', '" + total + "')";
+            stmt.executeUpdate(query);
+            message = "Thank you for participating in the online exam.";
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            message = "Error storing results.";
+        }
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        out.println("<html><body bgcolor='cyan'><center>");
+        out.println("<h1>" + message + "</h1>");
+        out.println("<h3>Your results are stored in our database.</h3>");
+        out.println("<b>Participants and their Marks:</b><table border='5'>");
+
+        try (Connection connect = DriverManager.getConnection("jdbc:your_database_url", "username", "password");
+             Statement stmt = connect.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM student")) {
+
+            out.println("<tr><th>Seat_no</th><th>Name</th><th>Marks</th></tr>");
+            while (rs.next()) {
+                out.println("<tr><td>" + rs.getInt(1) + "</td><td>" + rs.getString(2) + "</td><td>" + rs.getInt(3) + "</td></tr>");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        out.println("</table></center></body></html>");
+    }
+}
+```
+
+### Sample Output
+The servlet displays:
+```
+Thank you for participating in the online exam.
+Your results are stored in our database.
+Participants and their Marks:
+Seat_no | Name  | Marks
+--------|-------|------
+123     | John  | 10
+456     | Alice | 8
+```
+
+### Result
+The servlet successfully processes online examination data and displays the student mark list stored in the database.
