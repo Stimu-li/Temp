@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="transform.xsl"?>
+<?xml-stylesheet type="text/xsl" href="sports.xsl"?>
 <sports>
-    <sport name="Soccer">
+    <sport>
+        <name>Soccer</name>
         <description>A team sport played between two teams of eleven players with a spherical ball.</description>
         <players>22</players>
         <origin>England</origin>
     </sport>
-    <sport name="Basketball">
+    <sport>
+        <name>Basketball</name>
         <description>A team sport in which two teams, most commonly of five players each, oppose each other on a rectangular court.</description>
         <players>10</players>
         <origin>USA</origin>
     </sport>
-    <sport name="Tennis">
+    <sport>
+        <name>Tennis</name>
         <description>A racket sport that can be played individually against a single opponent or between two teams of two players each.</description>
         <players>2 or 4</players>
         <origin>France</origin>
     </sport>
-    <sport name="Cricket">
+    <sport>
+        <name>Cricket</name>
         <description>A bat-and-ball game played between two teams of eleven players on a field at the center of which is a 22-yard pitch.</description>
         <players>22</players>
         <origin>England</origin>

@@ -1,9 +1,9 @@
 function findLargest(num1, num2, num3) {
-    return Math.max(num1, num2, num3);
+  return Math.max(num1, num2, num3);
 }
 
 function isOddOrEven(num) {
-    return num % 2 === 0 ? "Even" : "Odd";
+  return num % 2 === 0 ? "Even" : "Odd";
 }
 
 // Example usage

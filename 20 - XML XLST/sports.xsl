@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:template match="/library">
+    <xsl:template match="/sports">
         <html>
             <head>
-                <title>Library Books</title>
+                <title>Sports List</title>
             </head>
             <body>
-                <h1>Book List</h1>
+                <h1>Sports and Their Descriptions</h1>
                 <table border="1">
                     <tr>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Year</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Players</th>
+                        <th>Origin</th>
                     </tr>
-                    <xsl:for-each select="book">
+                    <xsl:for-each select="sport">
                         <tr>
                             <td>
-                                <xsl:value-of select="title"/>
+                                <xsl:value-of select="name"/>
                             </td>
                             <td>
-                                <xsl:value-of select="author"/>
+                                <xsl:value-of select="description"/>
                             </td>
                             <td>
-                                <xsl:value-of select="year"/>
+                                <xsl:value-of select="players"/>
+                            </td>
+                            <td>
+                                <xsl:value-of select="origin"/>
                             </td>
                         </tr>
                     </xsl:for-each>

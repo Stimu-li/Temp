@@ -1,11 +1,11 @@
 # IP LAB PROGRAMS
 
-## 1. Create a web page with the following  
+## 1. Create a web page with the following
 
-   a. Cascading style sheets  
-   b. Embedded style sheets  
-   c. Inline style sheets  
-   Use our college information for the web pages.
+a. Cascading style sheets  
+ b. Embedded style sheets  
+ c. Inline style sheets  
+ Use our college information for the web pages.
 
 ### Aim
 
@@ -25,24 +25,26 @@ To create a web page using CSS (Cascading, Embedded, and Inline) style sheets.
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>College Information</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <style>
-        body {
-            background-color: lightgray;
-        }
-        .embedded-style {
-            color: blue;
-        }
+      body {
+        background-color: lightgray;
+      }
+
+      .embedded-style {
+        color: blue;
+      }
     </style>
-</head>
-<body>
+  </head>
+
+  <body>
     <h1>Welcome to Our College</h1>
     <p class="embedded-style">This paragraph uses embedded CSS for styling.</p>
     <p style="color: green;">This paragraph uses inline CSS for styling.</p>
     <p class="external-style">This paragraph uses external CSS for styling.</p>
-</body>
+  </body>
 </html>
 ```
 
@@ -50,9 +52,9 @@ To create a web page using CSS (Cascading, Embedded, and Inline) style sheets.
 
 ```css
 .external-style {
-    color: red;
-    font-size: 18px;
-    background-color: lightgray;
+  color: red;
+  font-size: 18px;
+  background-color: lightgray;
 }
 ```
 
@@ -86,6 +88,7 @@ To create a web page that embeds an India map with clickable hotspots for import
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>India Map with Cities</title>
     <style>
@@ -94,17 +97,18 @@ To create a web page that embeds an India map with clickable hotspots for import
         }
     </style>
 </head>
+
 <body>
     <h1>India Map</h1>
-    <img src="india-map.jpg" usemap="#india-map" alt="India Map" style="max-width: 100%;">
-    
+    <img src="india-map.png" usemap="#india-map" alt="India Map">
     <map name="india-map">
-        <area shape="rect" coords="50,100,150,200" alt="Delhi" href="delhi.html">
-        <area shape="rect" coords="200,80,300,180" alt="Mumbai" href="mumbai.html">
-        <area shape="rect" coords="300,250,400,350" alt="Kolkata" href="kolkata.html">
-        <area shape="rect" coords="150,250,250,350" alt="Chennai" href="chennai.html">
+        <area shape="circle" coords="507,552,24" alt="Delhi" href="delhi.html" />
+        <area shape="circle" coords="312,1103,70" alt="Mumbai" href="mumbai.html" />
+        <area shape="circle" coords="659,1443,38" alt="Kolkata" href="kolkata.html" />
+        <area shape="circle" coords="1056,889,36" alt="Chennai" href="chennai.html" />
     </map>
 </body>
+
 </html>
 ```
 
@@ -113,15 +117,16 @@ To create a web page that embeds an India map with clickable hotspots for import
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Delhi</title>
-</head>
-<body>
+  </head>
+
+  <body>
     <h1>Delhi</h1>
     <p>Population: 20 million</p>
     <p>Capital city of India, known for its rich history and culture.</p>
     <a href="index.html">Back to Map</a>
-</body>
+  </body>
 </html>
 ```
 
@@ -130,15 +135,16 @@ To create a web page that embeds an India map with clickable hotspots for import
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Mumbai</title>
-</head>
-<body>
+  </head>
+
+  <body>
     <h1>Mumbai</h1>
     <p>Population: 20 million</p>
     <p>Financial capital of India, famous for Bollywood and its beaches.</p>
     <a href="index.html">Back to Map</a>
-</body>
+  </body>
 </html>
 ```
 
@@ -147,15 +153,16 @@ To create a web page that embeds an India map with clickable hotspots for import
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Kolkata</title>
-</head>
-<body>
+  </head>
+
+  <body>
     <h1>Kolkata</h1>
     <p>Population: 14 million</p>
     <p>Known for its cultural heritage and historic landmarks.</p>
     <a href="index.html">Back to Map</a>
-</body>
+  </body>
 </html>
 ```
 
@@ -164,15 +171,16 @@ To create a web page that embeds an India map with clickable hotspots for import
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Chennai</title>
-</head>
-<body>
+  </head>
+
+  <body>
     <h1>Chennai</h1>
     <p>Population: 7 million</p>
     <p>Known for its temples and cultural landmarks.</p>
     <a href="index.html">Back to Map</a>
-</body>
+  </body>
 </html>
 ```
 
@@ -205,6 +213,7 @@ To create an XML document and transform it into an HTML format using XSLT.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="library.xsl"?>
 <library>
     <book>
         <title>XML Fundamentals</title>
@@ -228,7 +237,8 @@ To create an XML document and transform it into an HTML format using XSLT.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:template match="/library">
         <html>
             <head>
@@ -244,9 +254,15 @@ To create an XML document and transform it into an HTML format using XSLT.
                     </tr>
                     <xsl:for-each select="book">
                         <tr>
-                            <td><xsl:value-of select="title"/></td>
-                            <td><xsl:value-of select="author"/></td>
-                            <td><xsl:value-of select="year"/></td>
+                            <td>
+                                <xsl:value-of select="title"/>
+                            </td>
+                            <td>
+                                <xsl:value-of select="author"/>
+                            </td>
+                            <td>
+                                <xsl:value-of select="year"/>
+                            </td>
                         </tr>
                     </xsl:for-each>
                 </table>
@@ -266,9 +282,9 @@ Thus, an XML document was created and processed using XSLT to generate an HTML r
 
 ---
 
-## 4. Write DHTML codes for the following  
+## 4. Write DHTML codes for the following
 
-   To show/hide text dynamically, change background, and change image dynamically.
+To show/hide text dynamically, change background, and change image dynamically.
 
 ### Aim
 
@@ -288,50 +304,52 @@ To create a web page using DHTML to show/hide text, change the background color,
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>DHTML Example</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        #dynamicText {
-            display: none;
-            margin: 20px 0;
-        }
-        #dynamicImage {
-            width: 200px;
-            height: auto;
-        }
+      #dynamicText {
+        display: none;
+        margin: 20px 0;
+      }
+
+      #dynamicImage {
+        width: 200px;
+        height: auto;
+      }
     </style>
     <script>
-        function toggleText() {
-            const text = document.getElementById('dynamicText');
-            text.style.display = (text.style.display === 'none') ? 'block' : 'none';
-        }
+      function toggleText() {
+        const text = document.getElementById("dynamicText");
+        text.style.display = text.style.display === "none" ? "block" : "none";
+      }
 
-        function changeBackground() {
-            document.body.style.backgroundColor = 
-                document.body.style.backgroundColor === 'lightblue' ? 'white' : 'lightblue';
-        }
+      function changeBackground() {
+        document.body.style.backgroundColor =
+          document.body.style.backgroundColor === "lightblue"
+            ? "white"
+            : "lightblue";
+      }
 
-        function changeImage() {
-            const image = document.getElementById('dynamicImage');
-            image.src = (image.src.includes('cat.jpg')) ? 'dog.jpg' : 'cat.jpg';
-        }
+      function changeImage() {
+        const image = document.getElementById("dynamicImage");
+        image.src = image.src.includes("cat.jpg") ? "dog.jpg" : "cat.jpg";
+      }
     </script>
-</head>
-<body>
+  </head>
+
+  <body>
     <h1>DHTML Interactive Page</h1>
-    <div id="dynamicText">This is some dynamic text that can be shown or hidden.</div>
+    <div id="dynamicText">
+      This is some dynamic text that can be shown or hidden.
+    </div>
 
     <button onclick="toggleText()">Show/Hide Text</button>
 
     <button onclick="changeBackground()">Change Background Color</button>
 
-    <button onclick="changeImage()">Change Image</button><br>
-    <img id="dynamicImage" src="cat.jpg" alt="Dynamic Image">
-
-</body>
+    <button onclick="changeImage()">Change Image</button><br />
+    <img id="dynamicImage" src="cat.jpg" alt="Dynamic Image" />
+  </body>
 </html>
 ```
 
@@ -340,16 +358,16 @@ To create a web page using DHTML to show/hide text, change the background color,
 - Clicking "Show/Hide Text" toggles the visibility of the text.
 - Clicking "Change Background Color" changes the background color.
 - Clicking "Change Image" swaps the image between two specified images.
-![alt text](image-2.png)
+  ![alt text](image-2.png)
 
 ### Result
 
 Thus, a web page was created using DHTML to show/hide text, change background color, and change an image dynamically.
 
-## 5. Write the JavaScript for the following  
+## 5. Write the JavaScript for the following
 
-   a. Find the biggest among three numbers.  
-   b. Find odd or even.
+a. Find the biggest among three numbers.  
+ b. Find odd or even.
 
 ### Aim
 
@@ -366,11 +384,11 @@ To create JavaScript functions to find the largest of three numbers and determin
 
 ```js
 function findLargest(num1, num2, num3) {
-    return Math.max(num1, num2, num3);
+  return Math.max(num1, num2, num3);
 }
 
 function isOddOrEven(num) {
-    return num % 2 === 0 ? "Even" : "Odd";
+  return num % 2 === 0 ? "Even" : "Odd";
 }
 
 // Example usage
@@ -479,129 +497,6 @@ Got it! Here’s the updated code with wildcard imports for both servlet program
 
 ---
 
-## 7. Write programs in Java using Servlets  
-
-i. To invoke servlets from HTML forms.  
-ii. Session tracking using hidden form fields and hit count.
-
-### Aim
-
-To demonstrate how to invoke servlets from HTML forms and how to track sessions using hidden fields and hit counts.
-
-### Part i: Invoking Servlets from HTML Forms
-
-#### Algorithm
-
-1. **START**
-2. Create an HTML form that submits data to a servlet.
-3. Create a servlet to process the form data.
-4. Display the result.
-5. **STOP**
-
-#### Program (HTML Form)
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Invoke Servlet</title>
-</head>
-<body>
-    <h1>Submit Data to Servlet</h1>
-    <form action="MyServlet" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" required>
-        <button type="submit">Submit</button>
-    </form>
-</body>
-</html>
-```
-
-#### Program (Servlet)
-
-```java
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.annotation.*;
-import javax.servlet.http.*;
-
-@WebServlet("/MyServlet")
-public class MyServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = request.getParameter("name");
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<h1>Hello, " + name + "!</h1>");
-    }
-}
-```
-
-### Part ii: Session Tracking Using Hidden Form Fields and Hit Count
-
-#### Algorithm
-
-1. **START**
-2. Create an HTML form with hidden fields for session tracking.
-3. Create a servlet to handle session tracking and hit count.
-4. Display the count of hits.
-5. **STOP**
-
-#### Program (HTML Form with Hidden Field)
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Session Tracking</title>
-</head>
-<body>
-    <h1>Track Session with Hit Count</h1>
-    <form action="HitCountServlet" method="POST">
-        <input type="hidden" name="hiddenField" value="sessionData">
-        <button type="submit">Track Hit</button>
-    </form>
-</body>
-</html>
-```
-
-#### Program (Hit Count Servlet)
-
-```java
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.annotation.*;
-import javax.servlet.http.*;
-
-@WebServlet("/HitCountServlet")
-public class HitCountServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        Integer hitCount = (Integer) session.getAttribute("hitCount");
-        
-        if (hitCount == null) {
-            hitCount = 0;
-        }
-        hitCount++;
-        session.setAttribute("hitCount", hitCount);
-        
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<h1>Hit Count: " + hitCount + "</h1>");
-    }
-}
-```
-
-### Sample Output
-
-- For Part i: Submitting the form displays a greeting message with the user's name.
-- For Part ii: Submitting the hit count form displays the number of times the button has been clicked during the session.
-
-### Result
-
-Thus, Java servlets were created to invoke servlets from HTML forms and to track sessions using hidden fields and hit counts.
-
----
-
 ## 8. Using JavaScript to Create a New Email ID and Validate Registration, User Login, and Profile
 
 ### Aim
@@ -624,114 +519,113 @@ To demonstrate how to create a new email ID and validate user registration, logi
 ```html
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>User Registration and Login</title>
     <style>
-        .hidden {
-            display: none;
-        }
+      .hidden {
+        display: none;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1 id="registerHeader">User Registration</h1>
     <form id="registerForm" onsubmit="registerUser(event)">
-        <label for="regEmail">Email:</label>
-        <input type="email" id="regEmail" required>
-        <br>
-        <label for="regPassword">Password:</label>
-        <input type="password" id="regPassword" required>
-        <br>
-        <button type="submit">Register</button>
+      <label for="regEmail">Email:</label>
+      <input type="email" id="regEmail" required />
+      <br />
+      <label for="regPassword">Password:</label>
+      <input type="password" id="regPassword" required />
+      <br />
+      <button type="submit">Register</button>
     </form>
 
     <h1 class="hidden" id="loginHeader">User Login</h1>
     <form class="hidden" id="loginForm" onsubmit="loginUser(event)">
-        <label for="loginEmail">Email:</label>
-        <input type="email" id="loginEmail" required>
-        <br>
-        <label for="loginPassword">Password:</label>
-        <input type="password" id="loginPassword" required>
-        <br>
-        <button type="submit">Login</button>
+      <label for="loginEmail">Email:</label>
+      <input type="email" id="loginEmail" required />
+      <br />
+      <label for="loginPassword">Password:</label>
+      <input type="password" id="loginPassword" required />
+      <br />
+      <button type="submit">Login</button>
     </form>
 
     <div class="hidden" id="profile">
-        <h2>User Profile</h2>
-        <p id="profileEmail"></p>
-        <button onclick="logout()">Logout</button>
+      <h2>User Profile</h2>
+      <p id="profileEmail"></p>
+      <button onclick="logout()">Logout</button>
     </div>
 
     <script>
-        function registerUser(event) {
-            event.preventDefault();
-            const email = document.getElementById('regEmail').value;
-            const password = document.getElementById('regPassword').value;
+      function registerUser(event) {
+        event.preventDefault();
+        const email = document.getElementById("regEmail").value;
+        const password = document.getElementById("regPassword").value;
 
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(email)) {
-                alert("Please enter a valid email address.");
-                return;
-            }
-
-            // Store user data
-            localStorage.setItem('email', email);
-            localStorage.setItem('password', password);
-            alert("Registration successful! You can now login.");
-
-            // Hide registration form and show login form
-            document.getElementById('registerHeader').classList.add('hidden');
-            document.getElementById('registerForm').classList.add('hidden');
-            document.getElementById('loginHeader').classList.remove('hidden');
-            document.getElementById('loginForm').classList.remove('hidden');
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          alert("Please enter a valid email address.");
+          return;
         }
 
-        function loginUser(event) {
-            event.preventDefault();
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
+        // Store user data
+        localStorage.setItem("email", email);
+        localStorage.setItem("password", password);
+        alert("Registration successful! You can now login.");
 
-            // Validate login
-            const storedEmail = localStorage.getItem('email');
-            const storedPassword = localStorage.getItem('password');
+        // Hide registration form and show login form
+        document.getElementById("registerHeader").classList.add("hidden");
+        document.getElementById("registerForm").classList.add("hidden");
+        document.getElementById("loginHeader").classList.remove("hidden");
+        document.getElementById("loginForm").classList.remove("hidden");
+      }
 
-            if (email === storedEmail && password === storedPassword) {
-                // Hide login form and show profile
-                document.getElementById('loginHeader').classList.add('hidden');
-                document.getElementById('loginForm').classList.add('hidden');
-                document.getElementById('profileEmail').innerText = `Email: ${storedEmail}`;
-                document.getElementById('profile').classList.remove('hidden');
-            } else {
-                alert("Invalid email or password.");
-            }
+      function loginUser(event) {
+        event.preventDefault();
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
+
+        // Validate login
+        const storedEmail = localStorage.getItem("email");
+        const storedPassword = localStorage.getItem("password");
+
+        if (email === storedEmail && password === storedPassword) {
+          // Hide login form and show profile
+          document.getElementById("loginHeader").classList.add("hidden");
+          document.getElementById("loginForm").classList.add("hidden");
+          document.getElementById(
+            "profileEmail"
+          ).innerText = `Email: ${storedEmail}`;
+          document.getElementById("profile").classList.remove("hidden");
+        } else {
+          alert("Invalid email or password.");
         }
+      }
 
-        function logout() {
-            // Clear session and show registration form again
-            localStorage.removeItem('email');
-            localStorage.removeItem('password');
-            document.getElementById('profile').classList.add('hidden');
-            document.getElementById('registerHeader').classList.remove('hidden');
-            document.getElementById('registerForm').classList.remove('hidden');
-            document.getElementById('loginHeader').classList.add('hidden');
-            document.getElementById('loginForm').classList.add('hidden');
-
-        }
+      function logout() {
+        // Clear session and show registration form again
+        localStorage.removeItem("email");
+        localStorage.removeItem("password");
+        document.getElementById("profile").classList.add("hidden");
+        document.getElementById("registerHeader").classList.remove("hidden");
+        document.getElementById("registerForm").classList.remove("hidden");
+        document.getElementById("loginHeader").classList.add("hidden");
+        document.getElementById("loginForm").classList.add("hidden");
+      }
     </script>
-</body>
-
+  </body>
 </html>
 ```
 
 ### Sample Output
 
 1. **Registration**: Users can input an email and password.
-![alt text](image-3.png)
+   ![alt text](image-3.png)
 2. **Login**: Users can log in with the registered email and password.
-![alt text](image-4.png)
+   ![alt text](image-4.png)
 3. **Profile**: After login, it displays the user email and a logout button.
-![alt text](image-5.png)
+   ![alt text](image-5.png)
 
 ### Result
 
@@ -785,119 +679,140 @@ To validate registration, user login, user profile, and payment by credit card p
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Validation</title>
-    <script>
-        // Registration validation
-        function validateRegistration() {
-            const username = document.getElementById('regUsername').value;
-            const email = document.getElementById('regEmail').value;
-            const password = document.getElementById('regPassword').value;
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            let message = "";
+  <head>
+    <title>User Registration and Payment</title>
+    <style>
+      .error {
+        color: red;
+      }
 
-            if (!username || !email || !password) {
-                message = "All fields are required.";
-            } else if (!emailPattern.test(email)) {
-                message = "Invalid email format.";
-            } else if (password.length < 8) {
-                message = "Password must be at least 8 characters.";
-            } else {
-                message = "Registration valid.";
-            }
+      #Log,
+      #Pay {
+        display: none;
+      }
+    </style>
+  </head>
 
-            alert(message);
-            return false; // Prevent form submission for demo
-        }
-
-        // Login validation
-        function validateLogin() {
-            const username = document.getElementById('loginUsername').value;
-            const password = document.getElementById('loginPassword').value;
-            let message = "";
-
-            if (!username || !password) {
-                message = "Username and password are required.";
-            } else {
-                message = "Login valid.";
-            }
-
-            alert(message);
-            return false; // Prevent form submission for demo
-        }
-
-        // Profile validation
-        function validateProfile() {
-            const name = document.getElementById('profileName').value;
-            const email = document.getElementById('profileEmail').value;
-            let message = "";
-
-            if (!name || !email) {
-                message = "Name and email are required.";
-            } else {
-                message = "Profile valid.";
-            }
-
-            alert(message);
-            return false; // Prevent form submission for demo
-        }
-
-        // Payment validation
-        function validatePayment() {
-            const cardNumber = document.getElementById('cardNumber').value;
-            const expDate = document.getElementById('expDate').value;
-            const cvv = document.getElementById('cvv').value;
-            const cardPattern = /^\d{16}$/;
-            let message = "";
-
-            if (!cardPattern.test(cardNumber)) {
-                message = "Invalid credit card number.";
-            } else if (!expDate || !cvv) {
-                message = "Expiration date and CVV are required.";
-            } else {
-                message = "Payment valid.";
-            }
-
-            alert(message);
-            return false; // Prevent form submission for demo
-        }
-    </script>
-</head>
-<body>
-    <h1>User Validation</h1>
-
-    <h2>Registration</h2>
-    <form onsubmit="return validateRegistration();">
-        <input type="text" id="regUsername" placeholder="Username" required>
-        <input type="email" id="regEmail" placeholder="Email" required>
-        <input type="password" id="regPassword" placeholder="Password" required>
+  <body>
+    <div id="Reg">
+      <h1>User Registration</h1>
+      <form id="registrationForm" onsubmit="return validateRegistration()">
+        <label for="regEmail">Email:</label>
+        <input type="email" id="regEmail" required />
+        <span class="error" id="regEmailError"></span><br />
+        <label for="regPassword">Password:</label>
+        <input type="password" id="regPassword" required />
+        <span class="error" id="regPasswordError"></span><br />
         <button type="submit">Register</button>
-    </form>
+      </form>
+    </div>
 
-    <h2>Login</h2>
-    <form onsubmit="return validateLogin();">
-        <input type="text" id="loginUsername" placeholder="Username" required>
-        <input type="password" id="loginPassword" placeholder="Password" required>
+    <div id="Log">
+      <h1>User Login</h1>
+      <form id="loginForm" onsubmit="return validateLogin()">
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" required />
+        <span class="error" id="loginEmailError"></span><br />
         <button type="submit">Login</button>
-    </form>
+      </form>
+    </div>
 
-    <h2>Profile</h2>
-    <form onsubmit="return validateProfile();">
-        <input type="text" id="profileName" placeholder="Name" required>
-        <input type="email" id="profileEmail" placeholder="Email" required>
-        <button type="submit">Update Profile</button>
-    </form>
+    <div id="Pay">
+      <h1>Payment</h1>
+      <form id="paymentForm" onsubmit="return validatePayment()">
+        <label for="cardNumber">Credit Card Number:</label>
+        <input type="text" id="cardNumber" required />
+        <span class="error" id="cardNumberError"></span><br />
+        <label for="expDate">Expiration Date (MM/YY):</label>
+        <input type="text" id="expDate" required />
+        <span class="error" id="expDateError"></span><br />
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" required />
+        <span class="error" id="cvvError"></span><br />
+        <button type="submit">Pay</button>
+      </form>
+    </div>
 
-    <h2>Payment</h2>
-    <form onsubmit="return validatePayment();">
-        <input type="text" id="cardNumber" placeholder="Credit Card Number" required>
-        <input type="text" id="expDate" placeholder="MM/YY" required>
-        <input type="text" id="cvv" placeholder="CVV" required>
-        <button type="submit">Pay Now</button>
-    </form>
-</body>
+    <script>
+      function validateRegistration() {
+        let email = document.getElementById("regEmail").value;
+        let password = document.getElementById("regPassword").value;
+        let valid = true;
+
+        document.getElementById("regEmailError").textContent = "";
+        document.getElementById("regPasswordError").textContent = "";
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          document.getElementById("regEmailError").textContent =
+            "Invalid email format.";
+          valid = false;
+        }
+        if (password.length < 6) {
+          document.getElementById("regPasswordError").textContent =
+            "Password must be at least 6 characters.";
+          valid = false;
+        }
+        if (valid) {
+          document.getElementById("Reg").style.display = "none";
+          document.getElementById("Log").style.display = "block";
+        }
+        return valid;
+      }
+
+      function validateLogin() {
+        let email = document.getElementById("loginEmail").value;
+        let valid = true;
+
+        document.getElementById("loginEmailError").textContent = "";
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          document.getElementById("loginEmailError").textContent =
+            "Invalid email format.";
+          valid = false;
+        }
+        if (valid) {
+          document.getElementById("Log").style.display = "none";
+          document.getElementById("Pay").style.display = "block";
+        }
+        return valid;
+      }
+
+      function validatePayment() {
+        let cardNumber = document.getElementById("cardNumber").value;
+        let expDate = document.getElementById("expDate").value;
+        let cvv = document.getElementById("cvv").value;
+        let valid = true;
+
+        document.getElementById("cardNumberError").textContent = "";
+        document.getElementById("expDateError").textContent = "";
+        document.getElementById("cvvError").textContent = "";
+
+        const cardPattern = /^\d{16}$/;
+        if (!cardPattern.test(cardNumber)) {
+          document.getElementById("cardNumberError").textContent =
+            "Invalid card number.";
+          valid = false;
+        }
+        const expPattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
+        if (!expPattern.test(expDate)) {
+          document.getElementById("expDateError").textContent =
+            "Invalid expiration date.";
+          valid = false;
+        }
+        const cvvPattern = /^\d{3}$/;
+        if (!cvvPattern.test(cvv)) {
+          document.getElementById("cvvError").textContent = "Invalid CVV.";
+          valid = false;
+        }
+        if (valid) {
+          alert("Payment successful!");
+        }
+        return valid;
+      }
+    </script>
+  </body>
 </html>
 ```
 
@@ -936,67 +851,68 @@ To develop a basic AngularJS application that creates an order form using HTML a
 ```html
 <!DOCTYPE html>
 <html lang="en" ng-app="orderApp">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Order Form</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="script.js"></script>
-</head>
-<body ng-controller="OrderController">
+  </head>
 
+  <body ng-controller="OrderController">
     <h1>Order Form</h1>
     <form ng-submit="submitOrder()" name="orderForm">
-        <div>
-            <label>Name:</label>
-            <input type="text" ng-model="order.name" required>
-        </div>
-        <div>
-            <label>Email:</label>
-            <input type="email" ng-model="order.email" required>
-        </div>
-        <div>
-            <label>Product:</label>
-            <select ng-model="order.product" required>
-                <option value="">Select a product</option>
-                <option value="Product A">Product A</option>
-                <option value="Product B">Product B</option>
-                <option value="Product C">Product C</option>
-            </select>
-        </div>
-        <div>
-            <label>Quantity:</label>
-            <input type="number" ng-model="order.quantity" min="1" required>
-        </div>
-        <button type="submit">Submit Order</button>
+      <div>
+        <label>Name:</label>
+        <input type="text" ng-model="order.name" required />
+      </div>
+      <div>
+        <label>Email:</label>
+        <input type="email" ng-model="order.email" required />
+      </div>
+      <div>
+        <label>Product:</label>
+        <select ng-model="order.product" required>
+          <option value="">Select a product</option>
+          <option value="Product A">Product A</option>
+          <option value="Product B">Product B</option>
+          <option value="Product C">Product C</option>
+        </select>
+      </div>
+      <div>
+        <label>Quantity:</label>
+        <input type="number" ng-model="order.quantity" min="1" required />
+      </div>
+      <button type="submit">Submit Order</button>
     </form>
 
     <div ng-if="message">
-        <h3>{{ message }}</h3>
+      <h3>{{ message }}</h3>
     </div>
-
-</body>
+  </body>
 </html>
 ```
 
 #### JavaScript (script.js)
 
 ```javascript
-angular.module('orderApp', [])
-.controller('OrderController', ['$scope', function($scope) {
+angular.module("orderApp", []).controller("OrderController", [
+  "$scope",
+  function ($scope) {
     $scope.order = {};
-    $scope.message = '';
+    $scope.message = "";
 
-    $scope.submitOrder = function() {
-        if ($scope.orderForm.$valid) {
-            $scope.message = `Order submitted! \nName: ${$scope.order.name} \nEmail: ${$scope.order.email} \nProduct: ${$scope.order.product} \nQuantity: ${$scope.order.quantity}`;
-            // Reset form
-            $scope.order = {};
-        } else {
-            $scope.message = 'Please fill in all required fields.';
-        }
+    $scope.submitOrder = function () {
+      if ($scope.orderForm.$valid) {
+        $scope.message = `Order submitted! \nName: ${$scope.order.name} \nEmail: ${$scope.order.email} \nProduct: ${$scope.order.product} \nQuantity: ${$scope.order.quantity}`;
+        // Reset form
+        $scope.order = {};
+      } else {
+        $scope.message = "Please fill in all required fields.";
+      }
     };
-}]);
+  },
+]);
 ```
 
 ### Sample Output
@@ -1030,23 +946,23 @@ To create a React JS program that triggers a state update when a button is click
 #### JavaScript (App.js)
 
 ```javascript
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function App() {
-    // Define state variable
-    const [count, setCount] = useState(0);
+  // Define state variable
+  const [count, setCount] = useState(0);
 
-    // Function to update the state
-    const handleClick = () => {
-        setCount(count + 1);
-    };
+  // Function to update the state
+  const handleClick = () => {
+    setCount(count + 1);
+  };
 
-    return (
-        <div>
-            <h1>Count: {count}</h1>
-            <button onClick={handleClick}>Increment</button>
-        </div>
-    );
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={handleClick}>Increment</button>
+    </div>
+  );
 }
 
 export default App;
@@ -1056,7 +972,7 @@ export default App;
 
 - The initial count displayed is 0.
 - Clicking the "Increment" button increases the count by 1.
-![alt text](image-7.png)
+  ![alt text](image-7.png)
 
 ### Result
 
@@ -1095,21 +1011,23 @@ To create JavaScript functions to:
 ```javascript
 // Function to display squares of the first 10 numbers
 function displaySquares() {
-    for (let i = 1; i <= 10; i++) {
-        console.log(`Square of ${i}: ${i * i}`);
-    }
+  for (let i = 1; i <= 10; i++) {
+    console.log(`Square of ${i}: ${i * i}`);
+  }
 }
 
 // Function to reverse a number
 function reverseNumber(num) {
-    const reversed = num.toString().split('').reverse().join('');
-    return Number(reversed);
+  const reversed = num.toString().split("").reverse().join("");
+  return Number(reversed);
 }
 
 // Call the functions
 displaySquares();
 const numberToReverse = 12345;
-console.log(`Reversed number of ${numberToReverse}: ${reverseNumber(numberToReverse)}`);
+console.log(
+  `Reversed number of ${numberToReverse}: ${reverseNumber(numberToReverse)}`
+);
 ```
 
 ### Sample Output
@@ -1138,6 +1056,881 @@ console.log(`Reversed number of ${numberToReverse}: ${reverseNumber(numberToReve
 ### Result
 
 JavaScript functions successfully display the squares of the first 10 numbers and reverse a given number.
+
+---
+
+## 16. Validate a Form Using PHP Regular Expressions and Store Data in Database
+
+### Aim
+
+To create a PHP form that validates user input using regular expressions and stores the validated data into a MySQL database.
+
+### Algorithm
+
+- **START**
+  - Create an HTML form for user input (e.g., name, email, phone).
+  - Validate form data using PHP regular expressions.
+  - Store validated data in the database.
+- **STOP**
+
+### Database Setup
+
+#### Create Database and Table
+
+1. **Create Database**:
+
+   ```sql
+   CREATE DATABASE user_data;
+   ```
+
+2. **Create Users Table**:
+
+   ```sql
+   USE user_data;
+
+   CREATE TABLE users (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       name VARCHAR(100) NOT NULL,
+       email VARCHAR(100) NOT NULL UNIQUE,
+       phone VARCHAR(15)
+   );
+   ```
+
+### Coding
+
+#### 1. HTML Form (form.html)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>User Form</title>
+  </head>
+
+  <body>
+    <h1>User Information Form</h1>
+    <form action="submit_form.php" method="POST">
+      Name: <input type="text" name="name" required /><br />
+      Email: <input type="email" name="email" required /><br />
+      Phone: <input type="text" name="phone" /><br />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
+```
+
+#### 2. PHP Code for Handling Submission and Validation (submit_form.php)
+
+```php
+<?php
+// Database connection
+$host = 'localhost';
+$db = 'user_data';
+$user = 'root'; // Update with your database username
+$pass = ''; // Update with your database password
+
+$conn = new mysqli($host, $user, $pass, $db);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Get form data
+$name = $_POST['name'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+
+// Regular expression validation
+$name_pattern = "/^[a-zA-Z\s]+$/";
+$email_pattern = "/^[\w\.-]+@([\w-]+\.)+[\w-]{2,}$/"; // Updated pattern
+$phone_pattern = "/^\d{10}$/"; // Assuming 10-digit phone number
+
+$errors = [];
+
+// Validate name
+if (!preg_match($name_pattern, $name)) {
+    $errors[] = "Invalid name format.";
+}
+
+// Validate email
+if (!preg_match($email_pattern, $email)) {
+    $errors[] = "Invalid email format.";
+}
+
+// Validate phone (optional)
+if ($phone && !preg_match($phone_pattern, $phone)) {
+    $errors[] = "Invalid phone number format. Use 10 digits.";
+}
+
+// Check for errors
+if (count($errors) > 0) {
+    foreach ($errors as $error) {
+        echo "<p>$error</p>";
+    }
+} else {
+    // Prepare and bind
+    $stmt = $conn->prepare("INSERT INTO users (name, email, phone) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $name, $email, $phone);
+
+    // Execute the statement
+    if ($stmt->execute()) {
+        echo "<h2>Data submitted successfully!</h2>";
+    } else {
+        echo "<h2>Error: " . $stmt->error . "</h2>";
+    }
+    $stmt->close();
+}
+
+$conn->close();
+?>
+```
+
+### Sample Output
+
+- If validation fails, error messages will be displayed.
+- If validation succeeds, a success message will indicate that the data was submitted successfully.
+
+### Result
+
+A PHP form that validates user input using regular expressions and stores validated data in a MySQL database, ensuring data integrity and proper format.
+
+---
+
+## 18. PHP Program to Test Email Address Validity
+
+### Aim
+
+To create a PHP program that tests whether an email address is correctly formatted and to provide feedback for both valid and invalid email addresses.
+
+### Algorithm
+
+- **START**
+  - Create a simple HTML form to accept an email address.
+  - Use PHP to validate the email address format.
+  - Display a message indicating whether the email is valid or invalid.
+- **STOP**
+
+### Coding
+
+#### 1. HTML Form (email_form.html)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Email Validation</title>
+  </head>
+
+  <body>
+    <h1>Validate Email Address</h1>
+    <form action="validate_email.php" method="POST">
+      Email: <input type="email" name="email" required />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
+```
+
+#### 2. PHP Code for Email Validation (validate_email.php)
+
+```php
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+
+    // Validate the email address
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "<h2>The email address '$email' is valid.</h2>";
+    } else {
+        echo "<h2>The email address '$email' is invalid.</h2>";
+    }
+}
+?>
+```
+
+### Sample Output
+
+- For a valid email (e.g., `test@example.com`):
+
+  ```plaintext
+  The email address 'test@example.com' is valid.
+  ```
+
+- For an invalid email (e.g., `invalid-email`):
+
+  ```plaintext
+  The email address 'invalid-email' is invalid.
+  ```
+
+### Result
+
+A PHP program that effectively tests the validity of an email address and provides appropriate feedback based on the format of the input email.
+
+---
+
+## 20. XML Document for Sports and XSLT for Tabulation
+
+### Aim
+
+To create an XML document that describes various sports and their characteristics, and use XSLT to transform and present this data in a tabular format.
+
+### XML Document
+
+#### sports.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="sports.xsl"?>
+<sports>
+    <sport>
+        <name>Soccer</name>
+        <description>A team sport played between two teams of eleven players with a spherical ball.</description>
+        <players>22</players>
+        <origin>England</origin>
+    </sport>
+    <sport>
+        <name>Basketball</name>
+        <description>A team sport in which two teams, most commonly of five players each, oppose each other on a rectangular court.</description>
+        <players>10</players>
+        <origin>USA</origin>
+    </sport>
+    <sport>
+        <name>Tennis</name>
+        <description>A racket sport that can be played individually against a single opponent or between two teams of two players each.</description>
+        <players>2 or 4</players>
+        <origin>France</origin>
+    </sport>
+    <sport>
+        <name>Cricket</name>
+        <description>A bat-and-ball game played between two teams of eleven players on a field at the center of which is a 22-yard pitch.</description>
+        <players>22</players>
+        <origin>England</origin>
+    </sport>
+</sports>
+```
+
+### XSLT Stylesheet
+
+#### transform.xslt
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:template match="/sports">
+        <html>
+            <head>
+                <title>Sports List</title>
+            </head>
+            <body>
+                <h1>Sports and Their Descriptions</h1>
+                <table border="1">
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Players</th>
+                        <th>Origin</th>
+                    </tr>
+                    <xsl:for-each select="sport">
+                        <tr>
+                            <td>
+                                <xsl:value-of select="name"/>
+                            </td>
+                            <td>
+                                <xsl:value-of select="description"/>
+                            </td>
+                            <td>
+                                <xsl:value-of select="players"/>
+                            </td>
+                            <td>
+                                <xsl:value-of select="origin"/>
+                            </td>
+                        </tr>
+                    </xsl:for-each>
+                </table>
+            </body>
+        </html>
+    </xsl:template>
+</xsl:stylesheet>
+```
+
+### Sample Output
+
+![alt text](image-8.png)
+
+### Result
+
+An XML document marking up various sports and an XSLT stylesheet that transforms the data into a clear, tabulated format.
+
+---
+
+## 21. Web Service for Collecting Opinions on a Consumer Product
+
+### Aim
+
+To create a web service that collects and retrieves opinions from 500 people regarding a consumer product.
+
+### Algorithm
+
+- **START**
+  - Set up a database to store opinions.
+  - Create an API endpoint to collect opinions.
+  - Create an API endpoint to retrieve collected opinions.
+- **STOP**
+
+### Database Setup
+
+#### Create Database and Table
+
+1. **Create Database**:
+
+   ```sql
+   CREATE DATABASE product_opinions;
+   ```
+
+2. **Create Opinions Table**:
+
+   ```sql
+   USE product_opinions;
+
+   CREATE TABLE opinions (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       product_name VARCHAR(100),
+       opinion TEXT,
+       timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+   );
+   ```
+
+### Coding
+
+#### 1. API Setup (using PHP)
+
+##### 1.1. Database Connection (db.php)
+
+```php
+<?php
+$host = 'localhost';
+$db = 'product_opinions';
+$user = 'root'; // Update with your username
+$pass = ''; // Update with your password
+
+$conn = new mysqli($host, $user, $pass, $db);
+if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
+?>
+```
+
+##### 1.2. Collect Opinion (submit_opinion.php)
+
+```php
+<?php
+include 'db.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $stmt = $conn->prepare("INSERT INTO opinions (product_name, opinion) VALUES (?, ?)");
+    $stmt->bind_param("ss", $_POST['product_name'], $_POST['opinion']);
+    $stmt->execute();
+    $stmt->close();
+}
+$conn->close();
+?>
+```
+
+##### 1.3. Retrieve Opinions (get_opinions.php)
+
+```php
+<?php
+include 'db.php';
+
+$result = $conn->query("SELECT * FROM opinions ORDER BY timestamp DESC LIMIT 500");
+$opinions = $result->fetch_all(MYSQLI_ASSOC);
+echo json_encode($opinions);
+$conn->close();
+?>
+```
+
+##### 1.4. Index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Product Opinion</title>
+  </head>
+
+  <body>
+    <h1>Share Your Opinion</h1>
+    <form id="opinionForm">
+      <input
+        type="text"
+        name="product_name"
+        placeholder="Product Name"
+        required
+      />
+      <textarea name="opinion" placeholder="Your Opinion" required></textarea>
+      <input type="submit" value="Submit" />
+    </form>
+
+    <h2>Opinions</h2>
+    <div id="opinions"></div>
+
+    <script>
+      document.getElementById("opinionForm").onsubmit = function (event) {
+        event.preventDefault();
+        fetch("submit_opinion.php", {
+          method: "POST",
+          body: new FormData(this),
+        }).then(() => loadOpinions());
+      };
+
+      function loadOpinions() {
+        fetch("get_opinions.php")
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("opinions").innerHTML = data
+              .map(
+                (opinion) =>
+                  `<p><strong>${opinion.product_name}</strong>: ${opinion.opinion} <em>(${opinion.timestamp})</em></p>`
+              )
+              .join("");
+          });
+      }
+
+      loadOpinions(); // Load opinions on page load
+    </script>
+  </body>
+</html>
+```
+
+### Sample API Usage
+
+#### 1. Submitting an Opinion
+
+**POST Request** (to `submit_opinion.php`):
+
+```plaintext
+product_name: "Smartphone XYZ"
+opinion: "Great performance and camera quality."
+```
+
+**Response**:
+
+```json
+{
+  "status": "success",
+  "message": "Opinion submitted successfully!"
+}
+```
+
+### Result
+
+A simple web service that allows users to submit and retrieve opinions about a consumer product, facilitating feedback collection from up to 500 respondents.
+
+---
+
+## 22. JSP Page for Inputting First Name and Outputting Last Name
+
+### Aim
+
+To create a JSP page that allows users to input their first name and outputs a corresponding last name based on the input.
+
+### Algorithm
+
+- **START**
+  - Create an HTML form for user input of the first name.
+  - On form submission, use JSP to process the input and display the corresponding last name.
+- **STOP**
+
+### Coding
+
+#### 1. JSP Code (name_input.jsp)
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Name Input</title>
+</head>
+<body>
+    <h1>Enter Your First Name</h1>
+    <form action="name_input.jsp" method="POST">
+        First Name: <input type="text" name="firstName" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <%
+        // Retrieve the first name from the form submission
+        String firstName = request.getParameter("firstName");
+        String lastName = "";
+
+        // Define last names based on first names
+        if (firstName != null) {
+            switch (firstName.toLowerCase()) {
+                case "john":
+                    lastName = "Doe";
+                    break;
+                case "jane":
+                    lastName = "Smith";
+                    break;
+                case "alice":
+                    lastName = "Johnson";
+                    break;
+                case "bob":
+                    lastName = "Brown";
+                    break;
+                default:
+                    lastName = "Unknown Last Name";
+                    break;
+            }
+            // Display the last name
+            out.println("<h2>Your Last Name is: " + lastName + "</h2>");
+        }
+    %>
+</body>
+</html>
+```
+
+### Explanation
+
+- **Form**: The user inputs their first name and submits the form.
+- **Processing**: Upon submission, the JSP retrieves the first name and determines the corresponding last name using a `switch` statement.
+- **Output**: The last name is displayed on the same page.
+
+### Sample Output
+
+- If the user enters "John", the output will be:
+
+  ```plaintext
+  Your Last Name is: Doe
+  ```
+
+- If the user enters "Alice", the output will be:
+
+  ```plaintext
+  Your Last Name is: Johnson
+  ```
+
+- For any name not in the predefined list, the output will be:
+
+  ```plaintext
+  Your Last Name is: Unknown Last Name
+  ```
+
+### Result
+
+A functional JSP page that takes a first name as input and displays the corresponding last name based on predefined values.
+
+---
+
+## 23. Convert Static Web Pages to Dynamic Web Pages Using Servlets and Cookies
+
+### Aim
+
+To create a dynamic web application using JSP and Servlets that allows users to maintain a shopping cart, with user information stored in `web.xml`.
+
+### Algorithm
+
+- **START**
+  - Store user information (user ID, password, credit card number) in `web.xml`.
+  - Create a login page for user authentication.
+  - Use cookies to maintain user sessions.
+  - Create a shopping cart page where users can add items.
+  - Display the shopping cart contents.
+- **STOP**
+
+### Setup
+
+#### 1. Configure `web.xml`
+
+```xml
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+          version="3.1">
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.example.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>com.example.CartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+
+    <context-param>
+        <param-name>userID</param-name>
+        <param-value>user1</param-value>
+    </context-param>
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>pass123</param-value>
+    </context-param>
+    <context-param>
+        <param-name>creditCard</param-name>
+        <param-value>1234-5678-9012-3456</param-value>
+    </context-param>
+</web-app>
+```
+
+### 2. Create Login Servlet (LoginServlet.java)
+
+```java
+package com.example;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+import java.io.IOException;
+
+@WebServlet("/login")
+public class LoginServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String userId = request.getParameter("userId");
+        String password = request.getParameter("password");
+
+        String storedUserId = getServletContext().getInitParameter("userID");
+        String storedPassword = getServletContext().getInitParameter("password");
+
+        if (userId.equals(storedUserId) && password.equals(storedPassword)) {
+            Cookie cookie = new Cookie("userId", userId);
+            cookie.setMaxAge(60 * 60); // 1 hour
+            response.addCookie(cookie);
+            response.sendRedirect("cart.jsp");
+        } else {
+            response.sendRedirect("login.html?error=1");
+        }
+    }
+}
+```
+
+### 3. Create Cart Servlet (CartServlet.java)
+
+```java
+package com.example;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+import java.io.IOException;
+
+@WebServlet("/cart")
+public class CartServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        Cookie[] cookies = request.getCookies();
+        String userId = null;
+
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("userId")) {
+                    userId = cookie.getValue();
+                }
+            }
+        }
+
+        if (userId != null) {
+            // Normally, cart items would be fetched from a database or session
+            request.setAttribute("userId", userId);
+            request.getRequestDispatcher("cart.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("login.html");
+        }
+    }
+}
+```
+
+### 4. Create Login Page (login.html)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form action="login" method="post">
+      User ID: <input type="text" name="userId" required /><br />
+      Password: <input type="password" name="password" required /><br />
+      <button type="submit">Login</button>
+      <p style="color:red">
+        <%= request.getParameter("error") != null ? "Invalid credentials" : ""
+        %>
+      </p>
+    </form>
+  </body>
+</html>
+```
+
+### 5. Create Cart Page (cart.jsp)
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Shopping Cart</title>
+</head>
+<body>
+    <h1>Welcome, <%= request.getAttribute("userId") %>!</h1>
+    <h2>Your Shopping Cart</h2>
+    <ul>
+        <li>Product 1</li>
+        <li>Product 2</li>
+        <li>Product 3</li>
+    </ul>
+    <form action="checkout.jsp" method="post">
+        <button type="submit">Checkout</button>
+    </form>
+</body>
+</html>
+```
+
+### Sample Output
+
+- **Login Page**: Users can input their user ID and password.
+- **Cart Page**: Displays a welcome message with the user ID and a list of products in the cart.
+
+### Result
+
+A dynamic web application that utilizes Servlets and Cookies to handle user authentication and maintain a shopping cart for each user, enabling a more personalized shopping experience.
+
+---
+
+## 7. Write programs in Java using Servlets
+
+i. To invoke servlets from HTML forms.  
+ii. Session tracking using hidden form fields and hit count.
+
+### Aim
+
+To demonstrate how to invoke servlets from HTML forms and how to track sessions using hidden fields and hit counts.
+
+### Part i: Invoking Servlets from HTML Forms
+
+#### Algorithm
+
+1. **START**
+2. Create an HTML form that submits data to a servlet.
+3. Create a servlet to process the form data.
+4. Display the result.
+5. **STOP**
+
+#### Program (HTML Form)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Invoke Servlet</title>
+  </head>
+  <body>
+    <h1>Submit Data to Servlet</h1>
+    <form action="MyServlet" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" required />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
+```
+
+#### Program (Servlet)
+
+```java
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.annotation.*;
+import javax.servlet.http.*;
+
+@WebServlet("/MyServlet")
+public class MyServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        out.println("<h1>Hello, " + name + "!</h1>");
+    }
+}
+```
+
+### Part ii: Session Tracking Using Hidden Form Fields and Hit Count
+
+#### Algorithm
+
+1. **START**
+2. Create an HTML form with hidden fields for session tracking.
+3. Create a servlet to handle session tracking and hit count.
+4. Display the count of hits.
+5. **STOP**
+
+#### Program (HTML Form with Hidden Field)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Session Tracking</title>
+  </head>
+  <body>
+    <h1>Track Session with Hit Count</h1>
+    <form action="HitCountServlet" method="POST">
+      <input type="hidden" name="hiddenField" value="sessionData" />
+      <button type="submit">Track Hit</button>
+    </form>
+  </body>
+</html>
+```
+
+#### Program (Hit Count Servlet)
+
+```java
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.annotation.*;
+import javax.servlet.http.*;
+
+@WebServlet("/HitCountServlet")
+public class HitCountServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Integer hitCount = (Integer) session.getAttribute("hitCount");
+
+        if (hitCount == null) {
+            hitCount = 0;
+        }
+        hitCount++;
+        session.setAttribute("hitCount", hitCount);
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        out.println("<h1>Hit Count: " + hitCount + "</h1>");
+    }
+}
+```
+
+### Sample Output
+
+- For Part i: Submitting the form displays a greeting message with the user's name.
+- For Part ii: Submitting the hit count form displays the number of times the button has been clicked during the session.
+
+### Result
+
+Thus, Java servlets were created to invoke servlets from HTML forms and to track sessions using hidden fields and hit counts.
 
 ---
 
@@ -1304,21 +2097,21 @@ To create an HTML form for submitting a resume to a job portal, using JSP for ha
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Submit Resume</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Submit Your Resume</h1>
     <form action="submit_resume.jsp" method="POST">
-        Name: <input type="text" name="name" required><br>
-        Email: <input type="email" name="email" required><br>
-        Phone: <input type="text" name="phone"><br>
-        Resume: <textarea name="resume" required></textarea><br>
-        <button type="submit">Submit</button>
+      Name: <input type="text" name="name" required /><br />
+      Email: <input type="email" name="email" required /><br />
+      Phone: <input type="text" name="phone" /><br />
+      Resume: <textarea name="resume" required></textarea><br />
+      <button type="submit">Submit</button>
     </form>
-</body>
+  </body>
 </html>
 ```
 
@@ -1348,9 +2141,9 @@ To create an HTML form for submitting a resume to a job portal, using JSP for ha
         pstmt.setString(2, email);
         pstmt.setString(3, phone);
         pstmt.setString(4, resume);
-        
+
         int rowsAffected = pstmt.executeUpdate();
-        
+
         if (rowsAffected > 0) {
             out.println("<h2>Resume submitted successfully!</h2>");
         } else {
@@ -1373,770 +2166,3 @@ To create an HTML form for submitting a resume to a job portal, using JSP for ha
 ### Result
 
 A functional HTML form embedded with JSP code that allows users to submit their resumes to a job portal, storing the data in a MySQL database.
-
----
-
-## 16. Validate a Form Using PHP Regular Expressions and Store Data in Database
-
-### Aim
-
-To create a PHP form that validates user input using regular expressions and stores the validated data into a MySQL database.
-
-### Algorithm
-
-- **START**
-  - Create an HTML form for user input (e.g., name, email, phone).
-  - Validate form data using PHP regular expressions.
-  - Store validated data in the database.
-- **STOP**
-
-### Database Setup
-
-#### Create Database and Table
-
-1. **Create Database**:
-
-   ```sql
-   CREATE DATABASE user_data;
-   ```
-
-2. **Create Users Table**:
-
-   ```sql
-   USE user_data;
-
-   CREATE TABLE users (
-       id INT AUTO_INCREMENT PRIMARY KEY,
-       name VARCHAR(100) NOT NULL,
-       email VARCHAR(100) NOT NULL UNIQUE,
-       phone VARCHAR(15)
-   );
-   ```
-
-### Coding
-
-#### 1. HTML Form (form.html)
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Form</title>
-</head>
-<body>
-    <h1>User Information Form</h1>
-    <form action="submit_form.php" method="POST">
-        Name: <input type="text" name="name" required><br>
-        Email: <input type="email" name="email" required><br>
-        Phone: <input type="text" name="phone"><br>
-        <button type="submit">Submit</button>
-    </form>
-</body>
-</html>
-```
-
-#### 2. PHP Code for Handling Submission and Validation (submit_form.php)
-
-```php
-<?php 
-   // Database connection 
-   $host = 'localhost'; 
-   $db = 'user_data'; 
-   $user = 'root'; // Update with your database username 
-   $pass = ''; // Update with your database password 
- 
-   $conn = new mysqli($host, $user, $pass, $db); 
-   if ($conn->connect_error) { 
-       die("Connection failed: " . $conn->connect_error); 
-   } 
- 
-   // Get form data 
-   $name = $_POST['name']; 
-   $email = $_POST['email']; 
-   $phone = $_POST['phone']; 
- 
-   // Regular expression validation 
-   $name_pattern = "/^[a-zA-Z\s]+$/"; 
-   $email_pattern = "/^[\w\.-]+@([\w-]+\.)+[\w-]{2,}$/"; // Updated pattern 
-   $phone_pattern = "/^\d{10}$/"; // Assuming 10-digit phone number 
- 
-   $errors = []; 
- 
-   // Validate name 
-   if (!preg_match($name_pattern, $name)) { 
-       $errors[] = "Invalid name format."; 
-   } 
- 
-   // Validate email 
-   if (!preg_match($email_pattern, $email)) { 
-       $errors[] = "Invalid email format."; 
-   } 
- 
-   // Validate phone (optional) 
-   if ($phone && !preg_match($phone_pattern, $phone)) { 
-       $errors[] = "Invalid phone number format. Use 10 digits."; 
-   } 
- 
-   // Check for errors 
-   if (count($errors) > 0) { 
-       foreach ($errors as $error) { 
-           echo "<p>$error</p>"; 
-       } 
-   } else { 
-       // Prepare and bind 
-       $stmt = $conn->prepare("INSERT INTO users (name, email, phone) VALUES (?, ?, ?)"); 
-       $stmt->bind_param("sss", $name, $email, $phone); 
- 
-       // Execute the statement 
-       if ($stmt->execute()) { 
-           echo "<h2>Data submitted successfully!</h2>"; 
-       } else { 
-           echo "<h2>Error: " . $stmt->error . "</h2>"; 
-       } 
-       $stmt->close(); 
-   } 
- 
-   $conn->close(); 
-?>
-```
-
-### Sample Output
-
-- If validation fails, error messages will be displayed.
-- If validation succeeds, a success message will indicate that the data was submitted successfully.
-
-### Result
-
-A PHP form that validates user input using regular expressions and stores validated data in a MySQL database, ensuring data integrity and proper format.
-
----
-
-## 18. PHP Program to Test Email Address Validity
-
-### Aim
-
-To create a PHP program that tests whether an email address is correctly formatted and to provide feedback for both valid and invalid email addresses.
-
-### Algorithm
-
-- **START**
-  - Create a simple HTML form to accept an email address.
-  - Use PHP to validate the email address format.
-  - Display a message indicating whether the email is valid or invalid.
-- **STOP**
-
-### Coding
-
-#### 1. HTML Form (email_form.html)
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Validation</title>
-</head>
-<body>
-    <h1>Validate Email Address</h1>
-    <form action="validate_email.php" method="POST">
-        Email: <input type="email" name="email" required>
-        <button type="submit">Submit</button>
-    </form>
-</body>
-</html>
-```
-
-#### 2. PHP Code for Email Validation (validate_email.php)
-
-```php
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
-
-    // Validate the email address
-    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "<h2>The email address '$email' is valid.</h2>";
-    } else {
-        echo "<h2>The email address '$email' is invalid.</h2>";
-    }
-}
-?>
-```
-
-### Sample Output
-
-- For a valid email (e.g., `test@example.com`):
-
-  ```plaintext
-  The email address 'test@example.com' is valid.
-  ```
-
-- For an invalid email (e.g., `invalid-email`):
-
-  ```plaintext
-  The email address 'invalid-email' is invalid.
-  ```
-
-### Result
-
-A PHP program that effectively tests the validity of an email address and provides appropriate feedback based on the format of the input email.
-
----
-
-## 20. XML Document for Sports and XSLT for Tabulation
-
-### Aim
-
-To create an XML document that describes various sports and their characteristics, and use XSLT to transform and present this data in a tabular format.
-
-### XML Document
-
-#### sports.xml
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<sports>
-    <sport name="Soccer">
-        <description>A team sport played between two teams of eleven players with a spherical ball.</description>
-        <players>22</players>
-        <origin>England</origin>
-    </sport>
-    <sport name="Basketball">
-        <description>A team sport in which two teams, most commonly of five players each, oppose each other on a rectangular court.</description>
-        <players>10</players>
-        <origin>USA</origin>
-    </sport>
-    <sport name="Tennis">
-        <description>A racket sport that can be played individually against a single opponent or between two teams of two players each.</description>
-        <players>2 or 4</players>
-        <origin>France</origin>
-    </sport>
-    <sport name="Cricket">
-        <description>A bat-and-ball game played between two teams of eleven players on a field at the center of which is a 22-yard pitch.</description>
-        <players>22</players>
-        <origin>England</origin>
-    </sport>
-</sports>
-```
-
-### XSLT Stylesheet
-
-#### transform.xslt
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:output method="html" encoding="UTF-8" indent="yes"/>
-
-    <xsl:template match="/">
-        <html>
-            <head>
-                <title>Sports List</title>
-                <style>
-                    table {
-                        width: 100%;
-                        border-collapse: collapse;
-                    }
-                    th, td {
-                        border: 1px solid black;
-                        padding: 8px;
-                        text-align: left;
-                    }
-                    th {
-                        background-color: #f2f2f2;
-                    }
-                </style>
-            </head>
-            <body>
-                <h1>Sports and Their Descriptions</h1>
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Players</th>
-                        <th>Origin</th>
-                    </tr>
-                    <xsl:for-each select="sports/sport">
-                        <tr>
-                            <td><xsl:value-of select="@name"/></td>
-                            <td><xsl:value-of select="description"/></td>
-                            <td><xsl:value-of select="players"/></td>
-                            <td><xsl:value-of select="origin"/></td>
-                        </tr>
-                    </xsl:for-each>
-                </table>
-            </body>
-        </html>
-    </xsl:template>
-</xsl:stylesheet>
-```
-
-### Sample Output
-
-![alt text](image-8.png)
-
-### Result
-
-An XML document marking up various sports and an XSLT stylesheet that transforms the data into a clear, tabulated format.
-
----
-
-## 21. Web Service for Collecting Opinions on a Consumer Product
-
-### Aim
-
-To create a web service that collects and retrieves opinions from 500 people regarding a consumer product.
-
-### Algorithm
-
-- **START**
-  - Set up a database to store opinions.
-  - Create an API endpoint to collect opinions.
-  - Create an API endpoint to retrieve collected opinions.
-- **STOP**
-
-### Database Setup
-
-#### Create Database and Table
-
-1. **Create Database**:
-
-   ```sql
-   CREATE DATABASE product_opinions;
-   ```
-
-2. **Create Opinions Table**:
-
-   ```sql
-   USE product_opinions;
-
-   CREATE TABLE opinions (
-       id INT AUTO_INCREMENT PRIMARY KEY,
-       product_name VARCHAR(100),
-       opinion TEXT,
-       timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-   );
-   ```
-
-### Coding
-
-#### 1. API Setup (using PHP)
-
-##### 1.1. Database Connection (db.php)
-
-```php
-<?php
-$host = 'localhost';
-$db = 'product_opinions';
-$user = 'root'; // Update with your username
-$pass = ''; // Update with your password
-
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
-
-```
-
-##### 1.2. Collect Opinion (submit_opinion.php)
-
-```php
-<?php
-include 'db.php';
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $stmt = $conn->prepare("INSERT INTO opinions (product_name, opinion) VALUES (?, ?)");
-    $stmt->bind_param("ss", $_POST['product_name'], $_POST['opinion']);
-    $stmt->execute();
-    $stmt->close();
-}
-$conn->close();
-?>
-
-```
-
-##### 1.3. Retrieve Opinions (get_opinions.php)
-
-```php
-<?php
-include 'db.php';
-
-$result = $conn->query("SELECT * FROM opinions ORDER BY timestamp DESC LIMIT 500");
-$opinions = $result->fetch_all(MYSQLI_ASSOC);
-echo json_encode($opinions);
-$conn->close();
-?>
-
-```
-
-##### 1.4. Index.html
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Product Opinion</title>
-</head>
-<body>
-    <h1>Share Your Opinion</h1>
-    <form id="opinionForm">
-        <input type="text" name="product_name" placeholder="Product Name" required>
-        <textarea name="opinion" placeholder="Your Opinion" required></textarea>
-        <input type="submit" value="Submit">
-    </form>
-
-    <h2>Opinions</h2>
-    <div id="opinions"></div>
-
-    <script>
-        document.getElementById('opinionForm').onsubmit = function(event) {
-            event.preventDefault();
-            fetch('submit_opinion.php', {
-                method: 'POST',
-                body: new FormData(this)
-            }).then(() => loadOpinions());
-        };
-
-        function loadOpinions() {
-            fetch('get_opinions.php')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('opinions').innerHTML = data.map(opinion => 
-                        `<p><strong>${opinion.product_name}</strong>: ${opinion.opinion} <em>(${opinion.timestamp})</em></p>`
-                    ).join('');
-                });
-        }
-
-        loadOpinions(); // Load opinions on page load
-    </script>
-</body>
-</html>
-
-```
-
-### Sample API Usage
-
-#### 1. Submitting an Opinion
-
-**POST Request** (to `submit_opinion.php`):
-
-```plaintext
-product_name: "Smartphone XYZ"
-opinion: "Great performance and camera quality."
-```
-
-**Response**:
-
-```json
-{
-    "status": "success",
-    "message": "Opinion submitted successfully!"
-}
-```
-
-#### 2. Retrieving Opinions
-
-**GET Request** (to `get_opinions.php`):
-
-```plaintext
-Response:
-[
-    {
-        "id": 1,
-        "product_name": "Smartphone XYZ",
-        "opinion": "Great performance and camera quality.",
-        "timestamp": "2024-10-20 12:00:00"
-    },
-    ...
-]
-```
-
-### Result
-
-A simple web service that allows users to submit and retrieve opinions about a consumer product, facilitating feedback collection from up to 500 respondents.
-
----
-
-## 22. JSP Page for Inputting First Name and Outputting Last Name
-
-### Aim
-
-To create a JSP page that allows users to input their first name and outputs a corresponding last name based on the input.
-
-### Algorithm
-
-- **START**
-  - Create an HTML form for user input of the first name.
-  - On form submission, use JSP to process the input and display the corresponding last name.
-- **STOP**
-
-### Coding
-
-#### 1. JSP Code (name_input.jsp)
-
-```jsp
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Name Input</title>
-</head>
-<body>
-    <h1>Enter Your First Name</h1>
-    <form action="name_input.jsp" method="POST">
-        First Name: <input type="text" name="firstName" required>
-        <button type="submit">Submit</button>
-    </form>
-
-    <%
-        // Retrieve the first name from the form submission
-        String firstName = request.getParameter("firstName");
-        String lastName = "";
-
-        // Define last names based on first names
-        if (firstName != null) {
-            switch (firstName.toLowerCase()) {
-                case "john":
-                    lastName = "Doe";
-                    break;
-                case "jane":
-                    lastName = "Smith";
-                    break;
-                case "alice":
-                    lastName = "Johnson";
-                    break;
-                case "bob":
-                    lastName = "Brown";
-                    break;
-                default:
-                    lastName = "Unknown Last Name";
-                    break;
-            }
-            // Display the last name
-            out.println("<h2>Your Last Name is: " + lastName + "</h2>");
-        }
-    %>
-</body>
-</html>
-```
-
-### Explanation
-
-- **Form**: The user inputs their first name and submits the form.
-- **Processing**: Upon submission, the JSP retrieves the first name and determines the corresponding last name using a `switch` statement.
-- **Output**: The last name is displayed on the same page.
-
-### Sample Output
-
-- If the user enters "John", the output will be:
-
-  ```plaintext
-  Your Last Name is: Doe
-  ```
-
-- If the user enters "Alice", the output will be:
-
-  ```plaintext
-  Your Last Name is: Johnson
-  ```
-
-- For any name not in the predefined list, the output will be:
-
-  ```plaintext
-  Your Last Name is: Unknown Last Name
-  ```
-
-### Result
-
-A functional JSP page that takes a first name as input and displays the corresponding last name based on predefined values.
-
----
-
-## 23. Convert Static Web Pages to Dynamic Web Pages Using Servlets and Cookies
-
-### Aim
-
-To create a dynamic web application using JSP and Servlets that allows users to maintain a shopping cart, with user information stored in `web.xml`.
-
-### Algorithm
-
-- **START**
-  - Store user information (user ID, password, credit card number) in `web.xml`.
-  - Create a login page for user authentication.
-  - Use cookies to maintain user sessions.
-  - Create a shopping cart page where users can add items.
-  - Display the shopping cart contents.
-- **STOP**
-
-### Setup
-
-#### 1. Configure `web.xml`
-
-```xml
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
-          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" 
-          version="3.1">
-    <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>com.example.LoginServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>CartServlet</servlet-name>
-        <servlet-class>com.example.CartServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>CartServlet</servlet-name>
-        <url-pattern>/cart</url-pattern>
-    </servlet-mapping>
-
-    <context-param>
-        <param-name>userID</param-name>
-        <param-value>user1</param-value>
-    </context-param>
-    <context-param>
-        <param-name>password</param-name>
-        <param-value>pass123</param-value>
-    </context-param>
-    <context-param>
-        <param-name>creditCard</param-name>
-        <param-value>1234-5678-9012-3456</param-value>
-    </context-param>
-</web-app>
-```
-
-### 2. Create Login Servlet (LoginServlet.java)
-
-```java
-package com.example;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
-import java.io.IOException;
-
-@WebServlet("/login")
-public class LoginServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException {
-        String userId = request.getParameter("userId");
-        String password = request.getParameter("password");
-
-        String storedUserId = getServletContext().getInitParameter("userID");
-        String storedPassword = getServletContext().getInitParameter("password");
-
-        if (userId.equals(storedUserId) && password.equals(storedPassword)) {
-            Cookie cookie = new Cookie("userId", userId);
-            cookie.setMaxAge(60 * 60); // 1 hour
-            response.addCookie(cookie);
-            response.sendRedirect("cart.jsp");
-        } else {
-            response.sendRedirect("login.html?error=1");
-        }
-    }
-}
-```
-
-### 3. Create Cart Servlet (CartServlet.java)
-
-```java
-package com.example;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.*;
-import java.io.IOException;
-
-@WebServlet("/cart")
-public class CartServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException {
-        Cookie[] cookies = request.getCookies();
-        String userId = null;
-
-        if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("userId")) {
-                    userId = cookie.getValue();
-                }
-            }
-        }
-
-        if (userId != null) {
-            // Normally, cart items would be fetched from a database or session
-            request.setAttribute("userId", userId);
-            request.getRequestDispatcher("cart.jsp").forward(request, response);
-        } else {
-            response.sendRedirect("login.html");
-        }
-    }
-}
-```
-
-### 4. Create Login Page (login.html)
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
-    <h1>Login</h1>
-    <form action="login" method="post">
-        User ID: <input type="text" name="userId" required><br>
-        Password: <input type="password" name="password" required><br>
-        <button type="submit">Login</button>
-        <p style="color:red"><%= request.getParameter("error") != null ? "Invalid credentials" : "" %></p>
-    </form>
-</body>
-</html>
-```
-
-### 5. Create Cart Page (cart.jsp)
-
-```jsp
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.List" %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Your Shopping Cart</title>
-</head>
-<body>
-    <h1>Welcome, <%= request.getAttribute("userId") %>!</h1>
-    <h2>Your Shopping Cart</h2>
-    <ul>
-        <li>Product 1</li>
-        <li>Product 2</li>
-        <li>Product 3</li>
-    </ul>
-    <form action="checkout.jsp" method="post">
-        <button type="submit">Checkout</button>
-    </form>
-</body>
-</html>
-```
-
-### Sample Output
-
-- **Login Page**: Users can input their user ID and password.
-- **Cart Page**: Displays a welcome message with the user ID and a list of products in the cart.
-
-### Result
-
-A dynamic web application that utilizes Servlets and Cookies to handle user authentication and maintain a shopping cart for each user, enabling a more personalized shopping experience.
-
----

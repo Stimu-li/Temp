@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>DHTML Example</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
         #dynamicText {
             display: none;
             margin: 20px 0;
         }
+
         #dynamicImage {
             width: 200px;
             height: auto;
@@ -22,7 +21,7 @@
         }
 
         function changeBackground() {
-            document.body.style.backgroundColor = 
+            document.body.style.backgroundColor =
                 document.body.style.backgroundColor === 'lightblue' ? 'white' : 'lightblue';
         }
 
@@ -32,6 +31,7 @@
         }
     </script>
 </head>
+
 <body>
     <h1>DHTML Interactive Page</h1>
     <div id="dynamicText">This is some dynamic text that can be shown or hidden.</div>
@@ -44,4 +44,5 @@
     <img id="dynamicImage" src="cat.jpg" alt="Dynamic Image">
 
 </body>
+
 </html>
