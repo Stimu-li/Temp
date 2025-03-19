@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             String secondsStr = secondsInput.getText().toString();
             if (!secondsStr.isEmpty()) {
                 int seconds = Integer.parseInt(secondsStr);
+                Toast.makeText(MainActivity.this, "Alarm Set for " + seconds + " seconds", Toast.LENGTH_SHORT).show();
                 startAlarm(seconds);
             } else {
                 Toast.makeText(MainActivity.this, "Please enter a number of seconds", Toast.LENGTH_SHORT).show();
@@ -47,9 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void startAlarm(int seconds) {
         // Delay the alarm by the entered number of seconds
-        handler.postDelayed(() -> {
-            showToastAndNotification();
-        }, seconds * 1000);
+        handler.postDelayed(this::showToastAndNotification, seconds * 1000L);
     }
 
     private void showToastAndNotification() {
@@ -61,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         Notification notification = new NotificationCompat.Builder(MainActivity.this, CHANNEL_ID)
                 .setContentTitle("Alarm")
                 .setContentText("Your alarm has been triggered!")
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
                 .build();
 
         // Display the notification

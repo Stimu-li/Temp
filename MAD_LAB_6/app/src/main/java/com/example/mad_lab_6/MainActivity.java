@@ -27,12 +27,9 @@ public class MainActivity extends AppCompatActivity {
         startCountdown();
 
         // Set up button click listener to show a toast when clicked
-        showButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Show a toast when the button is clicked
-                Toast.makeText(MainActivity.this, "Button Clicked!", Toast.LENGTH_SHORT).show();
-            }
+        showButton.setOnClickListener(v -> {
+            // Show a toast when the button is clicked
+            Toast.makeText(MainActivity.this, "Button Clicked!", Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -41,37 +38,24 @@ public class MainActivity extends AppCompatActivity {
         Handler handler = new Handler();
 
         // Create a new thread for the countdown
-        Thread countdownThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (countdownValue > 0) {
-                    try {
-                        // Wait for 1 second
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                    // Update the countdown value
-                    countdownValue--;
-
-                    // Post the UI update to the main thread using Handler
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            countdownText.setText(String.valueOf(countdownValue));
-                        }
-                    });
+        Thread countdownThread = new Thread(() -> {
+            while (countdownValue > 0) {
+                try {
+                    // Wait for 1 second
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
 
-                // Once countdown is complete, show the button
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        showButton.setVisibility(View.VISIBLE);
-                    }
-                });
+                // Update the countdown value
+                countdownValue--;
+
+                // Post the UI update to the main thread using Handler
+                handler.post(() -> countdownText.setText(String.valueOf(countdownValue)));
             }
+
+            // Once countdown is complete, show the button
+            handler.post(() -> showButton.setVisibility(View.VISIBLE));
         });
 
         // Start the countdown thread

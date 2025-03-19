@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             File file = new File(dir, "examplefile.txt");
 
             try (FileOutputStream fos = new FileOutputStream(file)) {
-                String data = "This is some sample data to be written to the SD card.";
+                String data = "This is some sample data to be written to the SD card. Hello World!";
                 fos.write(data.getBytes());
                 fos.flush();
                 Toast.makeText(this, "Data written to SD card!", Toast.LENGTH_SHORT).show();

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/email_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints="emailAddress"
+        android:hint="Recipient Email"
+        android:minWidth="200dp"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/subject_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Subject"
+        android:minWidth="200dp"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/message_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Message"
+        android:minWidth="200dp"
+        android:inputType="textMultiLine"
+        android:minLines="4" />
+
+    <Button
+        android:id="@+id/send_email_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Email"
+        android:layout_marginTop="16dp"
+        android:onClick="sendEmail" />
+
+</LinearLayout>

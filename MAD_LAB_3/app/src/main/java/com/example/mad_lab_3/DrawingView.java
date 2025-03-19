@@ -7,8 +7,10 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+
 public class DrawingView extends View {
-    private Paint paint;
+    private final Paint paint;
 
     public DrawingView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -18,7 +20,7 @@ public class DrawingView extends View {
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
 
         // Set black background
