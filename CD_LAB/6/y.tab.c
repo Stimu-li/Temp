@@ -66,14 +66,14 @@
 
 
 /* First part of user prologue.  */
-#line 1 "valid.y"
- 
-#include <stdio.h>
-#include <stdlib.h>
+#line 1 "calc.y"
 
-void yyerror(const char *s);
-int yylex(void);
-int sym[26];  // Symbol table
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    void yyerror(char *);
+    int yylex(void);
+    int sym[26]; // Array to store variable values
 
 #line 79 "y.tab.c"
 
@@ -506,7 +506,7 @@ static const yytype_int8 yytranslate[] =
 static const yytype_int8 yyrline[] =
 {
        0,    16,    16,    17,    21,    22,    26,    27,    28,    29,
-      30,    31,    38
+      30,    31,    32
 };
 #endif
 
@@ -517,7 +517,7 @@ static const char *const yytname[] =
 {
   "$end", "error", "$undefined", "INTEGER", "VARIABLE", "'+'", "'-'",
   "'*'", "'/'", "'\\n'", "'='", "'('", "')'", "$accept", "program",
-  "statement", "expression", YY_NULLPTR
+  "statment", "expression", YY_NULLPTR
 };
 #endif
 
@@ -1307,67 +1307,61 @@ yyreduce:
   switch (yyn)
     {
   case 4:
-#line 21 "valid.y"
-               { printf("✅ Valid Expression\n"); }
+#line 21 "calc.y"
+               { printf("Result = %d\n", yyvsp[0]); }
 #line 1313 "y.tab.c"
     break;
 
   case 5:
-#line 22 "valid.y"
-                              { printf("✅ Valid Assignment\n"); sym[yyvsp[-2]] = yyvsp[0]; }
+#line 22 "calc.y"
+                              { sym[yyvsp[-2]] = yyvsp[0]; printf("Assigned %d to variable\n", yyvsp[0]); }
 #line 1319 "y.tab.c"
     break;
 
   case 6:
-#line 26 "valid.y"
+#line 26 "calc.y"
             { yyval = yyvsp[0]; }
 #line 1325 "y.tab.c"
     break;
 
   case 7:
-#line 27 "valid.y"
+#line 27 "calc.y"
                { yyval = sym[yyvsp[0]]; }
 #line 1331 "y.tab.c"
     break;
 
   case 8:
-#line 28 "valid.y"
+#line 28 "calc.y"
                                 { yyval = yyvsp[-2] + yyvsp[0]; }
 #line 1337 "y.tab.c"
     break;
 
   case 9:
-#line 29 "valid.y"
+#line 29 "calc.y"
                                 { yyval = yyvsp[-2] - yyvsp[0]; }
 #line 1343 "y.tab.c"
     break;
 
   case 10:
-#line 30 "valid.y"
+#line 30 "calc.y"
                                 { yyval = yyvsp[-2] * yyvsp[0]; }
 #line 1349 "y.tab.c"
     break;
 
   case 11:
-#line 31 "valid.y"
-                                { 
-        if (yyvsp[0] == 0) {
-            yyerror("❌ Error: Division by zero!");
-        } else {
-            yyval = yyvsp[-2] / yyvsp[0]; 
-        }
-      }
-#line 1361 "y.tab.c"
+#line 31 "calc.y"
+                                { yyval = yyvsp[-2] / yyvsp[0]; }
+#line 1355 "y.tab.c"
     break;
 
   case 12:
-#line 38 "valid.y"
+#line 32 "calc.y"
                          { yyval = yyvsp[-1]; }
-#line 1367 "y.tab.c"
+#line 1361 "y.tab.c"
     break;
 
 
-#line 1371 "y.tab.c"
+#line 1365 "y.tab.c"
 
       default: break;
     }
@@ -1599,15 +1593,13 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 41 "valid.y"
- 
+#line 34 "calc.y"
 
-void yyerror(const char *s) { 
-    fprintf(stderr, "❌ Invalid Expression: %s\n", s); 
-    exit(1);
-} 
 
-int main(void) { 
-    printf("Enter an expression to validate:\n");
-    return yyparse(); 
+void yyerror(char *s) {
+    fprintf(stderr, "Error: %s\n", s);
+}
+
+int main(void) {
+    return yyparse();
 }

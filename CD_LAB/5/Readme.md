@@ -1,20 +1,20 @@
 
 # Running Compiled file
 ```bash
-./calc
+./valid
 ```
 
 
 # Compiling the values
 
 ```bash
-yacc -d calc.y # -d is used to create the header file for the c for better linking and usage.
+yacc -d valid.y # -d is used to create the header file for the c for better linking and usage.
 
-lex calc.l
-gcc -o calc y.tab.c lex.yy.c -ll #-ll is used to link the lex library
+lex valid.l
+gcc -o valid y.tab.c lex.yy.c -ll #-ll is used to link the lex library
 
 # To run the compiled file 
-./calc
+./valid
 ```
 
 # Necessary packages should be there in putty 
