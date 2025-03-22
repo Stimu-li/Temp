@@ -8,6 +8,7 @@ int yywrap(void) {
 }
 
 int main() {
+    printf("Start typing:\n");
     yylex();
     return 0;
 }
