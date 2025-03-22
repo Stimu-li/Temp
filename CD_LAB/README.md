@@ -40,83 +40,20 @@ lex lexical_analyzer.l && gcc lex.yy.c -o lexical_analyzer && ./lexical_analyzer
 
 ### Exercise 5
 
-
-#### Running Compiled file
 ```bash
-./valid
-```
-
-
-#### Compiling the values
-
-```bash
-yacc -d valid.y # -d is used to create the header file for the c for better linking and usage.
-
-lex valid.l
-gcc -o valid y.tab.c lex.yy.c -ll #-ll is used to link the lex library
-
-# To run the compiled file 
-./valid
-```
-
-#### Necessary packages should be there in putty 
-
-```bash
-flex bison 
+yacc -d valid.y && lex valid.l && gcc lex.yy.c y.tab.c -o valid -ll && ./valid
 ```
 
 ### Exercise 6
 
-
-#### Running Compiled file
 ```bash
-./calc
-```
-
-
-#### Compiling the values
-
-```bash
-yacc -d calc.y # -d is used to create the header file for the c for better linking and usage.
-
-lex calc.l
-gcc -o calc y.tab.c lex.yy.c -ll #-ll is used to link the lex library
-
-# To run the compiled file 
-./calc
-```
-
-#### Necessary packages should be there in putty 
-
-```bash
-flex bison 
+yacc -d calc.y && lex calc.l && gcc lex.yy.c y.tab.c -o calc -ll && ./calc
 ```
 
 ### Exercise 7
 
-
-#### Running Compiled file
 ```bash
-./validator
-```
-
-
-#### Compiling the values
-
-```bash
-yacc -d validator.y # -d is used to create the header file for the c for better linking and usage.
-
-lex validator.l
-gcc -o validator y.tab.c lex.yy.c -ll #-ll is used to link the lex library
-
-# To run the compiled file 
-./validator
-```
-
-#### Necessary packages should be there in putty 
-
-```bash
-flex bison 
+yacc -d validator.y && lex validator.l && gcc lex.yy.c y.tab.c -o validator -ll && ./validator
 ```
 
 ### Exercise 8
@@ -128,7 +65,7 @@ gcc type_checking.c -o type_checking && ./type_checking
 ### Exercise 9
 
 ```bash
-gcc -o frontend frontend.c && ./frontend
+gcc frontend.c -o frontend && ./frontend
 ```
 
 ### Exercise 10
