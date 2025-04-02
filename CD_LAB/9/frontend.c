@@ -117,20 +117,16 @@ void printTAC() {
 // Main function to parse a C-style code
 int main() {
     char code[10][50];
+    FILE *file = fopen("input.txt", "r");
+    char line[50];
     int lineCount = 0;
 
-    printf("Enter C-like code (end with 'exit'):\n");
-
-    while (1) {
-        fgets(code[lineCount], sizeof(code[lineCount]), stdin);
-        code[lineCount][strcspn(code[lineCount], "\n")] = '\0'; // Remove newline
-
-        if (strcmp(code[lineCount], "exit") == 0)
-            break;
-
+    while (fgets(line, sizeof(line), file)) {
+        line[strcspn(line, "\n")] = '\0';
+        strcpy(code[lineCount], line);
         lineCount++;
     }
-
+    fclose(file);
     // Process each line
     for (int i = 0; i < lineCount; i++) {
         if (strstr(code[i], "if") != NULL)
