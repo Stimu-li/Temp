@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         Notification notification = new NotificationCompat.Builder(MainActivity.this, CHANNEL_ID)
                 .setContentTitle("Alarm")
                 .setContentText("Your alarm has been triggered!")
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setSmallIcon(R.mipmap.ic_launcher_foreground)
                 .build();
 
         // Display the notification
