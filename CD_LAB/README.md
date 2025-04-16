@@ -17,7 +17,9 @@ gcc lexical_analyzer.c -o lexical_analyzer && ./lexical_analyzer
 ### Exercise 3
 
 ```bash
-lex echo.l && gcc lex.yy.c -o echo && ./echo
+lex echo.l
+ gcc lex.yy.c -o echo
+ ./echo
 ```
 
 ```bash
