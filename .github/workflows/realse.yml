@@ -39,7 +39,7 @@ jobs:
 
           NEW_MAJOR=$MAJOR
           NEW_MINOR=$MINOR
-          NEW_PATCH=$PATCH+1
+          NEW_PATCH=$((PATCH+1))
 
           NEW_VERSION="v${NEW_MAJOR}.${NEW_MINOR}.${NEW_PATCH}"
           echo "New version calculated: $NEW_VERSION"
