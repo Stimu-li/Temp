@@ -18,6 +18,50 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all history for all tags
 
+      - name: Configure Git 
+        run : |
+          git config user.name "Github Actions Bot"
+          git config user.email "actions@github.com"
+
+      - name: Get latest tag and calculate new version
+        id: tag_calculation
+        run: |
+          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v${{ github.event.inputs.initial_version }}")
+          echo "Latest tag found (or initial): $LATEST_TAG"
+
+          # Remove 'v' prefix for version parsing
+          VERSION_NUM=${LATEST_TAG#v}
+
+          # Split into major, minor, patch
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION_NUM"
+
+          BUMP_TYPE="${{ github.event.inputs.bump_type }}"
+
+          NEW_MAJOR=$MAJOR
+          NEW_MINOR=$MINOR
+          NEW_PATCH=$PATCH+1
+
+          NEW_VERSION="v${NEW_MAJOR}.${NEW_MINOR}.${NEW_PATCH}"
+          echo "New version calculated: $NEW_VERSION"
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+      - name: Create and Push New Tag
+        id: tag_creation
+        run: |
+          NEW_TAG="${{ steps.tag_calculation.outputs.new_version }}"
+          echo "Attempting to create and push tag: $NEW_TAG"
+          
+          # Check if tag already exists locally or remotely
+          if git rev-parse "$NEW_TAG" >/dev/null 2>&1 || git ls-remote --tags origin "$NEW_TAG" | grep -q "$NEW_TAG"; then
+            echo "Tag $NEW_TAG already exists. Skipping tag creation."
+            echo "new_tag_pushed=false" >> $GITHUB_OUTPUT
+          else
+            git tag -a "$NEW_TAG" -m "Release $NEW_TAG"
+            git push origin "$NEW_TAG"
+            echo "Tag $NEW_TAG pushed successfully."
+            echo "new_tag_pushed=true" >> $GITHUB_OUTPUT
+            echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT # Output the actual tag pushed
+          fi
+
       - name: Set up Go
         uses: actions/setup-go@v5 # Action to set up the Go environment.
         with:
