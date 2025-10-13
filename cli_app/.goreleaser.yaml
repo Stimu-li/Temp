@@ -32,8 +32,8 @@ archives:
 
 # Disable release creation on GitHub for main branch builds
 release:
-  disable: true
+  github:
+    owner: Stimu-li
+    name: Temp
+  
 
-# Configure snapshot builds for non-release pushes
-snapshot:
-  name_template: "{{ .Tag }}-next" # Or just "{{ .Commit }}" for main branch builds

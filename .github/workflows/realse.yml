@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest # Use a Linux runner for building
     permissions:
-      contents: read # Only read permission is needed as we are not creating a release.
+      contents: write # Only read permission is needed as we are not creating a release.
 
     steps:
       - name: Checkout code
@@ -33,14 +33,5 @@ jobs:
         env:
           # Pass the API Key from GitHub Secrets as an environment variable to goreleaser.
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          # GoReleaser automatically provides .Version, .Commit, .Date based on git info.
-          # No need to manually set these as environment variables unless you want to override.
-
-      - name: Upload built binaries as artifacts
-        uses: actions/upload-artifact@v4 # Action to upload workflow artifacts.
-        with:
-          # GoReleaser places artifacts in a 'dist' directory relative to its working directory.
-          # Since goreleaser runs in './cli_app', the 'dist' directory will be './cli_app/dist'.
-          name: cslab-binaries-${{ github.sha }} # Name of the artifact, includes commit SHA for uniqueness.
-          path: ./cli_app/dist/ # Path to the directory containing the binaries.
-          retention-days: 7 # Keep artifacts for 7 days.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
