@@ -2,7 +2,10 @@ package lab
 
 import (
 	"context"
+	"fmt"
+	"time"
 
+	"github.com/briandowns/spinner"
 	"google.golang.org/genai"
 )
 
@@ -27,13 +30,27 @@ func NewClient(apiKey string) *Client {
 	}
 }
 
-func (c *Client) Chat(prompt string) (string, error) {
+func (c *Client) Chat(prompt string, systemPrompt string) (string, error) {
 	contextValue := GetCSLabContent()
-	prompt = "You are a helpful assistant and have a great understanding of the Cloud and Network Security. Here is your context: " + `
-	=============================================\n   ` + contextValue + "\n=============================================\n   " + "Please Answer the following question with the help of the question: " + prompt
-	result, err := c.client.Models.GenerateContent(c.context, "gemini-2.5-flash", genai.Text(prompt), nil)
+	var fullPrompt string
+	if systemPrompt == "" {
+		fullPrompt = "You are a Cloud Security Expert. You have to use the provided context to answer the question with relevant programs with proper indent, no comments and finally add methodology- if required(like setup steps). Here is your context: " + contextValue + "\n Answer the following question: " + prompt
+	} else {
+		fullPrompt = systemPrompt + "\n Answer the following question: " + prompt
+	}
+	s := spinner.New(spinner.CharSets[14], 100*time.Millisecond)
+	s.Prefix = "Processing... "
+	s.Start()
+
+	result, err := c.client.Models.GenerateContent(c.context, "gemini-2.5-flash", genai.Text(fullPrompt), nil)
+
+	s.Stop()
+
 	if err != nil {
+
+		fmt.Println("Error during content generation.")
 		return "", err
 	}
+
 	return result.Text(), nil
 }

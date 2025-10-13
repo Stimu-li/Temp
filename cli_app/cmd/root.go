@@ -27,7 +27,8 @@ var rootCmd = &cobra.Command{
 			fmt.Println("Failed to create client. Check your API key.")
 			return
 		}
-		response, err := client.Chat(question)
+		systemPrompt, _ := cmd.Flags().GetString("prompt")
+		response, err := client.Chat(question, systemPrompt)
 		if err != nil {
 			fmt.Println("Error:", err)
 			return
@@ -51,6 +52,6 @@ func Execute() {
 }
 
 func init() {
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 	rootCmd.Flags().StringP("question", "q", "", "Question to ask the AI")
+	rootCmd.Flags().StringP("prompt", "p", "", "System prompt to provide context")
 }
