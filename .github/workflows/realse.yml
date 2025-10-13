@@ -1,0 +1,88 @@
+name: CLI Build on Main
+
+on:
+  push:
+    branches:
+      - main # Trigger this workflow on every push to the 'main' branch.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # Use a Linux runner for building
+    permissions:
+      contents: read # Only read permission is needed as we are not creating a release.
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 # Action to check out your repository code.
+
+      - name: Set up Go
+        uses: actions/setup-go@v5 # Action to set up the Go environment.
+        with:
+          go-version: '1.22' # Using a stable Go version. '1.25.1' is not yet released.
+
+      - name: Create dist directory
+        run: mkdir -p dist # Create a directory to store the compiled binaries.
+
+      - name: Get build info for ldflags
+        id: build_info # Assign an ID to this step to access its outputs.
+        run: |
+          # Get the short commit SHA
+          COMMIT_SHA=$(git rev-parse --short HEAD)
+          echo "COMMIT_SHA=$COMMIT_SHA" >> $GITHUB_OUTPUT
+
+          # Get the current UTC date and time
+          BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          echo "BUILD_DATE=$BUILD_DATE" >> $GITHUB_OUTPUT
+
+          # For main branch builds, use a version like "0.0.0-dev-<commit_sha>"
+          VERSION="0.0.0-dev-${COMMIT_SHA}"
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Build for multiple platforms with ldflags
+        run: |
+          # Define target platforms (OS/Architecture combinations)
+          PLATFORMS=(
+            "linux/amd64"
+            "linux/arm64"
+            "windows/amd64"
+            "darwin/amd64"
+            "darwin/arm64"
+          )
+
+          APP_NAME="cslab" # Desired output name for your compiled executable.
+          
+          # IMPORTANT: These are the *import paths* to your packages where the variables are declared.
+          # Assuming your repository is github.com/Stimu-li/Temp
+          MAIN_PACKAGE_IMPORT_PATH="github.com/Stimu-li/Temp/cli_app"
+          LAB_PACKAGE_IMPORT_PATH="github.com/Stimu-li/Temp/cli_app/internal/lab"
+
+          # Construct the ldflags string
+          LDFLAGS="-s -w \
+                   -X ${MAIN_PACKAGE_IMPORT_PATH}.Version=${{ steps.build_info.outputs.VERSION }} \
+                   -X ${MAIN_PACKAGE_IMPORT_PATH}.Commit=${{ steps.build_info.outputs.COMMIT_SHA }} \
+                   -X ${MAIN_PACKAGE_IMPORT_PATH}.BuildDate=${{ steps.build_info.outputs.BUILD_DATE }} \
+                   -X ${LAB_PACKAGE_IMPORT_PATH}.APIKey=${{ secrets.GEMINI_API_KEY }}"
+
+          # The target for 'go build' is the directory containing main.go, which is 'cli_app'.
+          BUILD_TARGET_PATH="./cli_app"
+
+          for platform in "${PLATFORMS[@]}"; do
+            IFS='/' read -r GOOS GOARCH <<< "$platform" # Split platform into GOOS and GOARCH.
+            
+            OUTPUT_NAME="$APP_NAME-$GOOS-$GOARCH"
+            if [ "$GOOS" = "windows" ]; then
+              OUTPUT_NAME+=".exe" # Add .exe extension for Windows executables.
+            fi
+
+            echo "Building for $GOOS/$GOARCH..."
+            # Use the -ldflags with the constructed string
+            env GOOS=$GOOS GOARCH=$GOARCH go build -ldflags "$LDFLAGS" -o "./dist/$OUTPUT_NAME" "$BUILD_TARGET_PATH"
+            echo "Built ./dist/$OUTPUT_NAME"
+          done
+
+      - name: Upload built binaries as artifacts
+        uses: actions/upload-artifact@v4 # Action to upload workflow artifacts.
+        with:
+          name: cslab-binaries-${{ github.sha }} # Name of the artifact, includes commit SHA for uniqueness.
+          path: dist/ # Path to the directory containing the binaries.
+          
