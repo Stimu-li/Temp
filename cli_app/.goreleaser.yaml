@@ -1,0 +1,39 @@
+# .goreleaser.yaml
+project_name: cslab
+
+builds:
+  - id: "cslab-build"
+    main: . # Build the main package in the current directory (which will be cli_app)
+    binary: cslab # Output binary name
+    env:
+      - CGO_ENABLED=0 # Disable CGO for static binaries
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      # GoReleaser automatically provides .Version, .Commit, .Date.
+      # {{ .ModulePath }} will be your Go module path (e.g., github.com/Stimu-li/Temp/cli_app).
+      - -s -w
+      - -X {{ .ModulePath }}.Version={{ .Version }}
+      - -X {{ .ModulePath }}.Commit={{ .Commit }}
+      - -X {{ .ModulePath }}.BuildDate={{ .Date }}
+      # This injects the APIKey from the environment variable.
+      # Ensure 'github.com/Stimu-li/Temp/internal/lab' is the correct import path for your lab package.
+      - -X github.com/Stimu-li/Temp/internal/lab.APIKey={{ .Env.GEMINI_API_KEY }}
+
+archives:
+  - id: default
+    format: binary # Just output the raw binary, no zip/tar.gz
+    name_template: "{{ .Binary }}-{{ .Os }}-{{ .Arch }}"
+
+# Disable release creation on GitHub for main branch builds
+release:
+  disable: true
+
+# Configure snapshot builds for non-release pushes
+snapshot:
+  name_template: "{{ .Tag }}-next" # Or just "{{ .Commit }}" for main branch builds
