@@ -34,7 +34,7 @@ func (c *Client) Chat(prompt string, systemPrompt string) (string, error) {
 	contextValue := GetCSLabContent()
 	var fullPrompt string
 	if systemPrompt == "" {
-		fullPrompt = "You are a Cloud Security Expert. You have to use the provided context to answer the question with relevant programs with proper indent, no comments and finally add methodology- if required(like setup steps). Here is your context: " + contextValue + "\n Answer the following question: " + prompt
+		fullPrompt = "You are a Data Science  Expert in Python. You have to use the provided context to answer the question with relevant programs with proper indent, no comments and finally add methodology- if required(like explaining the graphs). Here is your context: " + contextValue + "\n Answer the following question: " + prompt
 	} else {
 		fullPrompt = systemPrompt + "\n Answer the following question: " + prompt
 	}

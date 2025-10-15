@@ -1,10 +1,10 @@
 # .goreleaser.yaml
-project_name: cslab
+project_name: dsup
 
 builds:
-  - id: "cslab-build"
+  - id: "dsup-build"
     main: . # Build the main package in the current directory (which will be cli_app)
-    binary: cslab # Output binary name
+    binary: dsup # Output binary name
     env:
       - CGO_ENABLED=0 # Disable CGO for static binaries
     goos:
